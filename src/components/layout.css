@@ -2,12 +2,31 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  height: 100%;
 }
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
+
+/* FONTS */
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("./raleway/Montserrat-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("./raleway/montserrat-bold-webfont.woff") format("truetype");
+}
+
+@font-face {
+  font-family: "KaushanScript-Regular";
+  src: url("./raleway/KaushanScript-Regular.ttf") format("truetype");
+}
+
 article,
 aside,
 details,
