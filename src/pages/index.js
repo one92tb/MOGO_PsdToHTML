@@ -1,7 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
-import Intro from "../components/Intro/intro"
 import styled from "styled-components"
+import Intro from "../components/Intro/intro"
+import About from "../components/About/about"
+import Statistics from "../components/Statistics/statistics"
+import Services from "../components/Services/services"
 
 const Container = styled.div`
   max-width: 1920px;
@@ -13,6 +16,9 @@ const IndexPage = () => (
   <Layout>
     <Container>
       <Intro />
+      <About />
+      <Statistics />
+      <Services />
     </Container>
   </Layout>
 )

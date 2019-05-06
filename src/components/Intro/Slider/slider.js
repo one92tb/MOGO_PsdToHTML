@@ -4,22 +4,26 @@ import styled from "styled-components"
 const List = styled.ul`
   display: flex;
   justify-content: space-between;
-  margin-top: 157px;
+  margin: 157px 0 21px 0;
+  padding: 0;
 `
 
 const ListItem = styled.li`
   list-style-type: none;
-  font-family: "Montserrat-Regular";
-  text-transform: uppercase;
-
+  font-size: 24px;
   color: #fff;
+  font-family: "Montserrat-Regular";
+  display: inline-block;
+  margin: 0;
+  font-size: 24px;
+  text-transform: uppercase;
 
   ::before {
     content: "";
     display: block;
     border: 1.5px solid #fff;
     width: 280px;
-    margin-bottom: 25px;
+    margin-bottom: 17px;
   }
 
   ::after {
@@ -28,34 +32,32 @@ const ListItem = styled.li`
     border: 1.5px solid red;
     width: 70px;
     position: relative;
-    top: -55px;
+    bottom: 49px;
   }
 
   &:not(:first-child) {
     ::after {
       content: none;
     }
-  }
 `
 
-const Number = styled.p`
+const Number = styled.span`
   font-family: "Montserrat-Bold";
-  display: inline-block;
 `
 
 const Slider = () => (
   <List>
     <ListItem>
-      <Number>01&nbsp;</Number>intro
+      <Number>01</Number>&nbsp;intro
     </ListItem>
     <ListItem>
-      <Number>02&nbsp;</Number>work
+      <Number>02</Number>&nbsp;work
     </ListItem>
     <ListItem>
-      <Number>03&nbsp;</Number>about
+      <Number>03</Number>&nbsp;about
     </ListItem>
     <ListItem>
-      <Number>04&nbsp;</Number>contacts
+      <Number>04</Number>&nbsp;contacts
     </ListItem>
   </List>
 )

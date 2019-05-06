@@ -1,27 +1,26 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-const activeClassName = "nav-item-active"
-//
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 128px;
-  margin-bottom: 101px;
-  padding: 28px 0 0 0;
+  height: 100px;
+  padding: 22.5px 0 0 0;
 `
-//  font-family: "Montserrat"; 18.645833vw 0 18.8541667vw
+
 const Logo = styled.span`
   font-size: 30px;
   color: #ffffff;
   font-family: "Montserrat-Bold";
-  font-weight: 700;
+  margin: 0;
 `
 
 const Nav = styled.ul`
   width: 551px;
   display: flex;
   justify-content: space-between;
+  margin-top: 15.5px;
 `
 
 const NavItem = styled.li`
@@ -32,7 +31,6 @@ const NavItem = styled.li`
   }
 `
 
-//font-family: "Montserrat";
 const NavLink = styled.a`
   font-size: 14px;
   color: #fff;
@@ -55,7 +53,9 @@ const NavLink = styled.a`
   }
 `
 
-const Image = styled.img``
+const Image = styled.img`
+  color: red;
+`
 
 const Header = () => (
   <StaticQuery
@@ -78,39 +78,18 @@ const Header = () => (
       }
     `}
     render={data => {
-      console.log(
-        data.search.childImageSharp.fluid.src,
-        data.shop.childImageSharp.fluid.src
-      )
+      const links = ["about", "service", "work", "blog", "contact"]
       return (
         <Wrapper>
           <Logo>MoGo</Logo>
           <Nav>
-            <NavItem>
-              <NavLink to={"/"} activeClassName={activeClassName}>
-                About
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to={"/asd"} activeClassName={activeClassName}>
-                Service
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to={"/"} activeClassName={activeClassName}>
-                Work
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to={"/"} activeClassName={activeClassName}>
-                Blog
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to={"/"} activeClassName={activeClassName}>
-                Contact
-              </NavLink>
-            </NavItem>
+            {links.map(link => {
+              return (
+                <NavItem>
+                  <NavLink>{link}</NavLink>
+                </NavItem>
+              )
+            })}
             <NavItem>
               <Image
                 src={data.shop.childImageSharp.fluid.src}

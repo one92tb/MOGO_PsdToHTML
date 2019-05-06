@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   height: 52.083333vw;
-
  }
 `
 
@@ -32,11 +31,6 @@ const Intro = () => (
       }
     `}
     render={data => {
-      /*
-<Header />
-<Jumbotron />
-<Slider />
-*/
       return (
         <Wrapper>
           <Inner>
