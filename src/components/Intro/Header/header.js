@@ -1,15 +1,17 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 100px;
+  width: 100%;
   padding: 22.5px 0 0 0;
+  position: relative;
+  left: -2px;
+  height: 100px;
 `
 
-const Logo = styled.span`
+const Logo = styled.p`
   font-size: 30px;
   color: #ffffff;
   font-family: "Montserrat-Bold";
@@ -20,7 +22,7 @@ const Nav = styled.ul`
   width: 551px;
   display: flex;
   justify-content: space-between;
-  margin-top: 15.5px;
+  margin: 8.5px 0 0 0;
 `
 
 const NavItem = styled.li`
@@ -47,8 +49,8 @@ const NavLink = styled.a`
       content: "";
       display: block;
       width: calc(100% - 1px);
-      border: 1.5px solid #fce38a;
-      margin-top: 7px;
+      border-top: 3px solid #fce38a;
+      margin-top: 10px;
     }
   }
 `
@@ -57,58 +59,24 @@ const Image = styled.img`
   color: red;
 `
 
-const Header = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        search: file(relativePath: { eq: "search-icon.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 32) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        shop: file(relativePath: { eq: "shop-icon.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 32) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={data => {
-      const links = ["about", "service", "work", "blog", "contact"]
-      return (
-        <Wrapper>
-          <Logo>MoGo</Logo>
-          <Nav>
-            {links.map(link => {
-              return (
-                <NavItem>
-                  <NavLink>{link}</NavLink>
-                </NavItem>
-              )
-            })}
-            <NavItem>
-              <Image
-                src={data.shop.childImageSharp.fluid.src}
-                width={18}
-                height={15}
-              />
-            </NavItem>
-            <NavItem>
-              <Image
-                src={data.search.childImageSharp.fluid.src}
-                width={18}
-                height={18}
-              />
-            </NavItem>
-          </Nav>
-        </Wrapper>
-      )
-    }}
-  />
+const links = ["about", "service", "work", "blog", "contact"]
+const Header = props => (
+  <Wrapper>
+    <Logo>MoGo</Logo>
+    <Nav>
+      {links.map((link, id) => (
+        <NavItem key={id}>
+          <NavLink>{link}</NavLink>
+        </NavItem>
+      ))}
+      <NavItem>
+        <Image src={props.shopIconSrc} width={18} height={15} />
+      </NavItem>
+      <NavItem>
+        <Image src={props.searchIconSrc} width={18} height={18} />
+      </NavItem>
+    </Nav>
+  </Wrapper>
 )
 
 export default Header

@@ -20,6 +20,11 @@
   src: url("../raleway/Roboto-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Roboto-LightItalic";
+  src: url("../raleway/Roboto-LightItalic.ttf") format("truetype");
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -43,7 +48,7 @@ html {
  */
 
 body {
-  margin: 0;
+  margin: 0 auto;
 }
 
 /**

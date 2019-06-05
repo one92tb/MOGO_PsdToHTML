@@ -3,8 +3,10 @@ import styled from "styled-components"
 import { StaticQuery, graphql } from "gatsby"
 
 const Wrapper = styled.div`
-  padding: 0 18.645833vw 0 18.8541667vw;
-  margin-bottom: 121px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 70.5px;
 `
 
 const Title = styled.span`
@@ -12,7 +14,7 @@ const Title = styled.span`
   font-size: 24px;
   text-align: center;
   display: block;
-  padding: 107px 0 14.5px 0;
+  padding: 107.5px 0 15px 0;
   color: #333;
 `
 
@@ -29,16 +31,15 @@ const Header = styled.span`
     display: block;
     border: 1.5px solid #f38181;
     width: 60px;
-    margin: 36.5px auto 49px auto;
+    margin: 36.5px auto 15.5px auto;
   }
 `
-/*
 
-*/
 const Image = styled.img``
 
 const Service = styled.div`
   display: flex;
+  margin: 46.75px 0;
 `
 
 const ServicesBox = styled.div`
@@ -67,15 +68,17 @@ const Description = styled.span`
   font-family: "Roboto-Regular";
 `
 
-const Shape = styled.div`
+/*const Shape = styled.div`
+  position: absolute;
   width: 100%;
   height: 1px;
   background: #e5e5e5;
   margin: 51px 0 47px 0;
+  top: 40px;
 `
 
 const ImageWrapper = styled.div``
-
+*/
 const TextWrapper = styled.div`
   padding-left: 29px;
 `
@@ -90,48 +93,15 @@ const Services = () => (
               order
               title
               description
-            }
-          }
-        }
-        service1: file(relativePath: { eq: "service1.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 32) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        service2: file(relativePath: { eq: "service2.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 32) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        service3: file(relativePath: { eq: "service3.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 32) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        service4: file(relativePath: { eq: "service4.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 32) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        service5: file(relativePath: { eq: "service5.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 32) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        service6: file(relativePath: { eq: "service6.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 32) {
-              ...GatsbyImageSharpFluid
+              icon {
+                title
+                fixed {
+                  width
+                  height
+                  src
+                  srcSet
+                }
+              }
             }
           }
         }
@@ -147,33 +117,9 @@ const Services = () => (
           <ServicesBox>
             {services
               .sort((a, b) => a.node.order - b.node.order)
-              .slice(0, 3)
               .map(({ node }) => (
                 <Service key={node.order}>
-                  <Image
-                    src={data[`service${node.order}`].childImageSharp.fluid.src}
-                    width={32}
-                    height={31}
-                  />
-                  <TextWrapper>
-                    <Name>{node.title}</Name>
-                    <Description>{node.description}</Description>
-                  </TextWrapper>
-                </Service>
-              ))}
-          </ServicesBox>
-          <Shape />
-          <ServicesBox>
-            {services
-              .sort((a, b) => a.node.order - b.node.order)
-              .slice(3, 6)
-              .map(({ node }) => (
-                <Service key={node.order}>
-                  <Image
-                    src={data[`service${node.order}`].childImageSharp.fluid.src}
-                    width={32}
-                    height={31}
-                  />
+                  <Image src={node.icon.fixed.src} width={32} height={31} />
                   <TextWrapper>
                     <Name>{node.title}</Name>
                     <Description>{node.description}</Description>

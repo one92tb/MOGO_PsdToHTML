@@ -3,24 +3,24 @@ import styled from "styled-components"
 import { StaticQuery, graphql } from "gatsby"
 
 const Wrapper = styled.div`
-  background: #95e1d3;
-  height: 270px;
   width: 100%;
+  background: #95e1d3;
 `
 
 const Inner = styled.div`
-  padding: 0 18.645833vw 0 18.8541667vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
-  justify-conent: space-between;
-  height: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-left: 1px solid #fff;
 `
 
 const Rectangle = styled.div`
   width: 239px;
-  height: 100%;
-
+  padding-bottom: 87px;
   border-right: 1px solid #fff;
-  border-left: 1px solid #fff;
 
   &:not(:first-child) {
     border-left: none;
@@ -33,7 +33,7 @@ const Number = styled.span`
   color: #fff;
   text-align: center;
   display: block;
-  margin: 72px 0 15px;
+  margin: 74px 0 11px;
 `
 
 const Name = styled.span`
@@ -79,28 +79,5 @@ const Statistics = () => (
     }}
   />
 )
-
-/*
-<Rectangle>
-  <Number>42</Number>
-  <Name>web desing projects</Name>
-</Rectangle>
-<Rectangle>
-  <Number>42</Number>
-  <Name>web desing projects</Name>
-</Rectangle>
-<Rectangle>
-  <Number>42</Number>
-  <Name>web desing projects</Name>
-</Rectangle>
-<Rectangle>
-  <Number>42</Number>
-  <Name>web desing projects</Name>
-</Rectangle>
-<Rectangle>
-  <Number>42</Number>
-  <Name>web desing projects</Name>
-</Rectangle>
-*/
 
 export default Statistics
