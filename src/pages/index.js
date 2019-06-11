@@ -8,6 +8,7 @@ import Services from "../components/Services/services"
 import Feature from "../components/Feature/feature"
 import WhatWeDo from "../components/WhatWeDo/whatWeDo"
 import Quote from "../components/Quote/quote"
+import WhoWeAre from "../components/WhoWeAre/whoWeAre"
 
 const Container = styled.div`
   width: 100%;
@@ -23,6 +24,7 @@ const IndexPage = () => (
       <Feature />
       <WhatWeDo />
       <Quote />
+      <WhoWeAre />
     </Container>
   </Layout>
 )

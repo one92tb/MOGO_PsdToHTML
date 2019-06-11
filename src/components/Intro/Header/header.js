@@ -34,7 +34,7 @@ const NavItem = styled.li`
 `
 
 const NavLink = styled.a`
-  font-size: 14px;
+  font-size: 14pt;
   color: #fff;
   font-weight: 400;
   text-align: center;

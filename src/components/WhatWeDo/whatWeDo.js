@@ -47,7 +47,8 @@ const Description = styled.span`
   font-family: Roboto-Regular;
   line-height: 24px;
   margin-bottom: 87.5px;
-  padding: 0 123px;
+  max-width: 954px;
+  margin: 0 auto 87.5px auto;
 `
 
 const Article = styled.div`
@@ -146,6 +147,7 @@ const WhatWeDo = () => (
         allContentfulWhatWeDo {
           edges {
             node {
+              order
               name
               description {
                 description
@@ -201,7 +203,6 @@ class WhatWeDoComponent extends React.Component {
 
   render() {
     const { data } = this.props
-    console.log(data.allContentfulWhatWeDoImg.edges)
     return (
       <Wrapper>
         <Title>service</Title>
@@ -233,10 +234,10 @@ class WhatWeDoComponent extends React.Component {
                     <ArrowIcon
                       src={
                         node.name === this.state.active
-                          ? data.allContentfulWhatWeDoImg.edges[0].node.image
-                              .fixed.src
-                          : data.allContentfulWhatWeDoImg.edges[1].node.image
-                              .fixed.src
+                          ? this.props.data.allContentfulWhatWeDoImg.edges[0]
+                              .node.image.fixed.src
+                          : this.props.data.allContentfulWhatWeDoImg.edges[1]
+                              .node.image.fixed.src
                       }
                       width={22}
                       height={12}
@@ -246,8 +247,8 @@ class WhatWeDoComponent extends React.Component {
                   </CardHeader>
                   <CardBody name={node.name} activeStatus={this.state.active}>
                     <CardDescription>
-                      {element.node.description.description} <br /> <br />{" "}
-                      {element.node.description.description}
+                      {node.description.description} <br /> <br />{" "}
+                      {node.description.description}
                     </CardDescription>
                   </CardBody>
                 </Card>

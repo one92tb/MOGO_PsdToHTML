@@ -62,7 +62,8 @@ const Header = styled.span`
   }
 `
 const TabletImg = styled.img`
-  margin-left: 336px;
+ position: absolute;
+  right: 389px;
 `
 const PhoneImg = styled.img`
   position: absolute;

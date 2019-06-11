@@ -54,10 +54,13 @@ const Rectangle = styled.div`
 `
 
 const Image = styled.img`
+  position: relative;
+  top: -1px;
+  left: -1px;
+
   &:hover {
-    position: relative;
-    top: -10px;
-    left: -10px;
+    top: -11px;
+    left: -11px;
   }
 `
 
@@ -110,7 +113,7 @@ const About = () => (
             {edges
               .sort((a, b) => a.node.order - b.node.order)
               .map(element => (
-                <Rectangle>
+                <Rectangle key={element.node.name}>
                   <Image
                     alt={element.node.name}
                     src={element.node.image.fixed.src}
