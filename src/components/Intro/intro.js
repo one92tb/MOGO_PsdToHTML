@@ -7,10 +7,14 @@ import Slider from "./Slider/slider"
 
 const Wrapper = styled.div`
   width: 100%;
-  background: linear-gradient(to bottom, rgba(243, 138, 129, 0.8), rgba(251, 227, 137, 0.8)), url(${props =>
+  background: linear-gradient(to bottom, rgba(243, 138, 129, 0.7), rgba(251, 227, 137, 0.7)), url(${props =>
     props.bg});
   background-size: cover;
   background-repeat: no-repeat;
+
+  @media all and (max-width: 980px) {
+    background: linear-gradient(to bottom, rgba(243, 138, 129, 0.8), rgba(251, 227, 137, 0.8));
+  }
 }
 `
 

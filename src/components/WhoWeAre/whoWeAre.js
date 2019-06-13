@@ -39,7 +39,7 @@ const Description = styled.span`
   line-height: 24px;
   display: block;
   text-align: center;
-  width: 960px;
+  max-width: 960px;
   margin: 0 auto;
   margin-bottom: 87.5px;
   color: rgba(153, 153, 153, 255);

@@ -18,13 +18,7 @@ const IndexPage = () => (
   <Layout>
     <Container>
       <Intro />
-      <About />
-      <Statistics />
-      <Services />
-      <Feature />
-      <WhatWeDo />
-      <Quote />
-      <WhoWeAre />
+
     </Container>
   </Layout>
 )
@@ -38,4 +32,5 @@ export default IndexPage
 <Feature />
 <WhatWeDo />
 <Quote />
+<WhoWeAre />
 */

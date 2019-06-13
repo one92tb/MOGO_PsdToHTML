@@ -2,13 +2,17 @@ import React from "react"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
-  padding: 157px 0 21px 0;
+  padding: 127px 0 21px 0;
   width: 100%;
+
+  @media all and (max-width: 1200px) {
+    display: none;
+  }
+
 `
 
 const List = styled.ul`
   display: flex;
-  justify-content: space-between;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
@@ -23,7 +27,7 @@ const ListItem = styled.li`
   margin: 0;
   font-size: 24px;
   text-transform: uppercase;
-  width: 270px;
+  width: 280px;
 
   ::before {
     content: "";

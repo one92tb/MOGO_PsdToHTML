@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import "./layout.css"
-import "../../public/icons/font/flaticon.css"
+import "../icons/font/flaticon.css"
 
 const Layout = ({ children }) => (
   <StaticQuery

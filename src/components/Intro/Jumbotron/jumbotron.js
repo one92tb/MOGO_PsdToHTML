@@ -3,6 +3,11 @@ import styled from "styled-components"
 
 const Wrapper = styled.div`
   margin-top: 106.5px;
+  padding-bottom: 30px;
+
+  @media all and (max-width: 1200px) {
+    margin-top: 66.5px;
+  }
 `
 
 const Tittle = styled.span`
@@ -13,6 +18,26 @@ const Tittle = styled.span`
   text-align: center;
   display: block;
   text-transform: capitalize;
+
+  @media all and (max-width: 1200px) {
+    font-size: 64px;
+    line-height: 72px;
+  }
+
+  @media all and (max-width: 980px) {
+    font-size: 52px;
+    line-height: 64px;
+  }
+
+  @media all and (max-width: 768px) {
+    font-size: 42px;
+    line-height: 52px;
+  }
+
+  @media all and (max-width: 480px) {
+    font-size: 36px;
+    line-height: 42px;
+  }
 `
 
 const Content = styled.span`
@@ -32,6 +57,26 @@ const Content = styled.span`
     width: 60px;
     margin: 47px auto 50px auto;
   }
+
+  @media all and (max-width: 1200px) {
+    font-size: 120px;
+    line-height: 110px;
+  }
+
+  @media all and (max-width: 980px) {
+    font-size: 100px;
+    line-height: 90px;
+  }
+
+  @media all and (max-width: 768px) {
+    font-size: 70px;
+    line-height: 60px;
+  }
+
+  @media all and (max-width: 480px) {
+    font-size: 44px;
+    line-height: 40px;
+  }
 `
 
 const Button = styled.button`
@@ -46,6 +91,16 @@ const Button = styled.button`
   height: 40px;
   display: block;
   margin: 0 auto;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media all and (max-width: 768px) {
+    font-size: 12px;
+    width: 120px;
+    height: 30px;
+  }
 `
 
 const Jumbotron = () => (
@@ -59,3 +114,10 @@ const Jumbotron = () => (
 )
 
 export default Jumbotron
+
+/*
+@media all and (max-width: 1280px) { ...}
+@media all and (max-width: 980px) { ... }
+@media all and (max-width: 736px) { ... }
+@media all and (max-width: 480px) { ... }
+*/
