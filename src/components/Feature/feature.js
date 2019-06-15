@@ -9,10 +9,16 @@ const Wrapper = styled.div`
   display: block;
   height: 852px;
 
+  @media all and (max-width: 1200px) {
+    height: auto;
+  }
+
   ::after {
     content: "";
-    background-image: url(${props => props.bgSrc});
-    opacity: 0.2;
+    background: url(${props => props.bgSrc});
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.15;
     top: 0;
     left: 0;
     bottom: 0;
@@ -44,6 +50,10 @@ const Title = styled.span`
   ::first-letter {
     text-transform: capitalize;
   }
+
+  @media all and (max-width: 480px) {
+    font-size: 20px;
+  }
 `
 const Header = styled.span`
   font-family: Montserrat-Bold;
@@ -60,15 +70,66 @@ const Header = styled.span`
     border-top: 3px solid #f38181;
     margin: 34.5px auto 45px auto;
   }
+
+  @media all and (max-width: 480px) {
+    font-size: 24px;
+
+    ::after {
+      content: "";
+      display: block;
+      border: 1.5px solid #f38181;
+      width: 40px;
+      margin: 28px auto 32px auto;
+    }
+  }
 `
 const TabletImg = styled.img`
- position: absolute;
-  right: 389px;
+  position: relative;
+  width: 477px;
+  height: 582px;
+  left: 336px;
+
+  @media all and (max-width: 1200px) {
+    margin: 0 auto;
+    position: static;
+    display: block;
+  }
+
+  @media all and (max-width: 768px) {
+    width: 305px;
+    height: 372px;
+  }
+
+  @media all and (max-width: 480px) {
+    right: 0;
+    width: 167px
+    height: 204px;
+  }
 `
 const PhoneImg = styled.img`
   position: absolute;
-  right: 230px;
+  left: 698px;
   bottom: -90px;
+  width: 274px;
+  height: 476px;
+
+  @media all and (max-width: 1200px) {
+    left: calc(50% + 115px);
+  }
+
+  @media all and (max-width: 768px) {
+    width: 175px;
+    height: 305px;
+    bottom: -57.67px;
+    left: calc(50% + 73.5px);
+  }
+
+  @media all and (max-width: 480px) {
+    width: 96px;
+    height: 167px;
+    bottom: -40.5px;
+    left: calc(50% + 40px);
+  }
 `
 
 const Feature = () => (
@@ -101,11 +162,7 @@ const Feature = () => (
           <Inner>
             <Title>for all devices</Title>
             <Header>unique design</Header>
-            <TabletImg
-              src={edges[0].node.image.fixed.src}
-              height={582}
-              width={477}
-            />
+            <TabletImg src={edges[0].node.image.fixed.src} />
             <PhoneImg src={edges[1].node.image.fixed.src} />
           </Inner>
         </Wrapper>

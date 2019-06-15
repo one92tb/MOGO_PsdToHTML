@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
+import scrollToComponent from "react-scroll-to-component"
 
 const Wrapper = styled.div`
-  background: ${props => (props.isChecked ? " #f7a090" : "transparent")};
   transition: all 0.5 ease;
   display: flex;
   justify-content: space-between;
@@ -11,6 +11,10 @@ const Wrapper = styled.div`
   padding: 22.5px 0 60px 0;
   position: relative;
   height: 40px;
+
+  @media all and (max-width: 980px) {
+    background: ${props => (props.isChecked ? " #f7a090" : "transparent")};
+  }
 `
 const ToggleStyle = css`
   width: 100%;
@@ -111,7 +115,6 @@ const NavItem = styled.li`
 
   @media all and (max-width: 980px) {
     height: 40px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,7 +169,6 @@ class Header extends React.Component {
   }
 
   handleCheckBox = () => {
-    console.log("a")
     this.setState({
       checked: !this.state.checked,
     })
@@ -186,7 +188,17 @@ class Header extends React.Component {
         <Nav isChecked={this.state.checked}>
           {links.map((link, id) => (
             <NavItem key={id}>
-              <NavLink>{link}</NavLink>
+              <NavLink
+                onClick={() =>
+                  scrollToComponent(this.props.references[link], {
+                    offset: 0,
+                    align: "top",
+                    duration: 1500,
+                  })
+                }
+              >
+                {link}
+              </NavLink>
             </NavItem>
           ))}
           <NavItem>

@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   padding: 127px 0 21px 0;
   width: 100%;
 
-  @media all and (max-width: 1200px) {
+  @media all and (max-width: 1280px) {
     display: none;
   }
 

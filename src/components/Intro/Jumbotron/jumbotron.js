@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   margin-top: 106.5px;
   padding-bottom: 30px;
 
-  @media all and (max-width: 1200px) {
+  @media all and (max-width: 1280px) {
     margin-top: 66.5px;
   }
 `
@@ -19,7 +19,7 @@ const Tittle = styled.span`
   display: block;
   text-transform: capitalize;
 
-  @media all and (max-width: 1200px) {
+  @media all and (max-width: 1280px) {
     font-size: 64px;
     line-height: 72px;
   }
@@ -58,7 +58,7 @@ const Content = styled.span`
     margin: 47px auto 50px auto;
   }
 
-  @media all and (max-width: 1200px) {
+  @media all and (max-width: 1280px) {
     font-size: 120px;
     line-height: 110px;
   }

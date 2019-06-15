@@ -14,23 +14,29 @@ const Container = styled.div`
   width: 100%;
 `
 
-const IndexPage = () => (
-  <Layout>
-    <Container>
-      <Intro />
+class IndexPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.references = {}
+    this.ref = React.createRef()
+  }
 
-    </Container>
-  </Layout>
-)
+  setRef = ref => {
+    this.references[ref.attributes.name.nodeValue] = ref
+  }
 
+  render() {
+    return (
+      <Layout>
+        <Container>
+          <Intro references={this.references} />
+          <About setRef={this.setRef} />
+          <Statistics />
+          <Services setRef={this.setRef} />
+          <Feature />
+        </Container>
+      </Layout>
+    )
+  }
+}
 export default IndexPage
-
-/*
-<About />
-<Statistics />
-<Services />
-<Feature />
-<WhatWeDo />
-<Quote />
-<WhoWeAre />
-*/

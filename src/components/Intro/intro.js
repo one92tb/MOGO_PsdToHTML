@@ -24,7 +24,7 @@ const Inner = styled.div`
   margin: 0 auto;
 `
 
-const Intro = () => (
+const Intro = props => (
   <StaticQuery
     query={graphql`
       query {
@@ -53,6 +53,7 @@ const Intro = () => (
         <Wrapper bg={edges[2].node.image.fixed.src}>
           <Inner>
             <Header
+              references = {props.references}
               searchIconSrc={edges[0].node.image.fixed.src}
               shopIconSrc={edges[1].node.image.fixed.src}
             />

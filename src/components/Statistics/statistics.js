@@ -15,6 +15,11 @@ const Inner = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   border-left: 1px solid #fff;
+
+  @media all and (max-width: 1200px) {
+    justify-content: space-evenly;
+    border: none;
+  }
 `
 
 const Rectangle = styled.div`
@@ -24,6 +29,10 @@ const Rectangle = styled.div`
 
   &:not(:first-child) {
     border-left: none;
+  }
+
+  @media all and (max-width: 1200px) {
+    border: none;
   }
 `
 
