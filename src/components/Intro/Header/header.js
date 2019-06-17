@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
-import scrollToComponent from "react-scroll-to-component"
 
 const Wrapper = styled.div`
   transition: all 0.5 ease;
@@ -226,10 +225,10 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll)
+    window.addEventListener("scroll", this.handleScrollToTopAppear)
   }
 
-  handleScroll = event => {
+  handleScrollToTopAppear = event => {
     if (window.scrollY > 400) {
       this.setState({
         navAppear: true,
@@ -247,8 +246,15 @@ class Header extends React.Component {
     })
   }
 
+  scrollToRef = a => {
+    console.log(a)
+    window.scrollTo(0, a)
+  }
+
   render() {
-    console.log(this.state)
+    if (this.props.references) {
+      console.log(this.props.references.about.offsetTop)
+    }
     const { shopIconSrc, searchIconSrc } = this.props
     return (
       <Wrapper isChecked={this.state.checked}>
@@ -264,11 +270,7 @@ class Header extends React.Component {
             <NavItem
               key={id}
               onClick={() =>
-                scrollToComponent(this.props.references[link], {
-                  offset: 0,
-                  align: "top",
-                  duration: 1500,
-                })
+                this.scrollToRef(this.props.references[link].offsetTop)
               }
             >
               <NavLink>{link}</NavLink>
@@ -284,13 +286,7 @@ class Header extends React.Component {
         <NavIcon
           className="flaticon-chevron-1"
           appear={this.state.navAppear}
-          onClick={() =>
-            scrollToComponent(this.props.references["intro"], {
-              offset: 0,
-              align: "top",
-              duration: 1500,
-            })
-          }
+          onClick={() => this.scrollToRef(0)}
         />
       </Wrapper>
     )
