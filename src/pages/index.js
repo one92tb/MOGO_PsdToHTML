@@ -29,11 +29,14 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <Container>
-          <Intro references={this.references} />
+          <Intro references={this.references} setRef={this.setRef}/>
           <About setRef={this.setRef} />
           <Statistics />
           <Services setRef={this.setRef} />
           <Feature />
+          <WhatWeDo />
+          <Quote />
+          <WhoWeAre />
         </Container>
       </Layout>
     )

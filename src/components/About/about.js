@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { StaticQuery, graphql } from "gatsby"
+import { TitleStyle, HeadlineStyle, DescriptionStyle } from "../../css/style.js"
 
 const Wrapper = styled.div`
   width: 100%;
@@ -10,74 +11,22 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.span`
-  font-family: KaushanScript-Regular;
-  font-size: 24px;
-  text-align: center;
-  color: #333;
-  display: block;
+  ${TitleStyle}
   padding: 89px 0 15.5px 0;
-
-  @media all and (max-width: 480px) {
-    font-size: 20px;
-  }
 `
 
-const Header = styled.span`
-  font-family: Montserrat-Bold;
-  font-size: 30px;
-  color: #333;
-  text-align: center;
-  text-transform: uppercase;
-  display: block;
-
+const Headline = styled.span`
   ::after {
-    content: "";
-    display: block;
-    border: 1.5px solid #f38181;
-    width: 60px;
     margin: 34.5px auto 42.5px auto;
   }
 
-  @media all and (max-width: 480px) {
-    font-size: 24px;
-
-    ::after {
-      content: "";
-      display: block;
-      border: 1.5px solid #f38181;
-      width: 40px;
-      margin: 28px auto 32px auto;
-    }
-  }
+  ${HeadlineStyle}
 `
 
 const Description = styled.span`
-  font-family: "Roboto-Regular";
-  font-size: 15px;
-  line-height: 24px;
-  text-align: center;
-  margin: 0 auto;
-  display: block;
-  padding: 0 123px;
-  margin-bottom: 96.5px;
-  color: rgba(153, 153, 153, 255);
-  text-transform: capitalize
+  margin: 0 auto 96.5px auto;
 
-  &:first-letter {
-    text-transform: uppercase;
-  }
-
-  @media all and (max-width: 980px) {
-    padding: 0 80px;
-  }
-
-  @media all and (max-width: 768px) {
-    padding: 0 50px;
-  }
-
-  @media all and (max-width: 480px) {
-    padding: 0 30px;
-  }
+  ${DescriptionStyle}
 `
 
 const Rectangle = styled.div`
@@ -130,7 +79,7 @@ const ImgWrapper = styled.div`
   flex-wrap: wrap;
 
   @media all and (max-width: 1280px) {
-    flex-direction: column;
+    justify-content: space-evenly;
   }
 `
 
@@ -177,8 +126,8 @@ const AboutComponent = props => {
   const { setRef } = props
   return (
     <Wrapper name="about" ref={setRef}>
-      <Title>What we do</Title>
-      <Header>story about us</Header>
+      <Title>what we do</Title>
+      <Headline>story about us</Headline>
       <Description>{description}</Description>
       <ImgWrapper>
         {edges

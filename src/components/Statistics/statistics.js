@@ -34,6 +34,11 @@ const Rectangle = styled.div`
   @media all and (max-width: 1200px) {
     border: none;
   }
+
+  @media all and (max-width: 768px) {
+    width:150px;
+    padding-bottom: 40px;
+  }
 `
 
 const Number = styled.span`
@@ -43,6 +48,10 @@ const Number = styled.span`
   text-align: center;
   display: block;
   margin: 74px 0 11px;
+
+  @media all and (max-width: 768px) {
+    font-size: 50px;
+  }
 `
 
 const Name = styled.span`
@@ -52,6 +61,10 @@ const Name = styled.span`
   display: block;
   color: #fff;
   text-transform: uppercase;
+
+    @media all and (max-width: 768px) {
+      font-size: 12px;
+    }
 `
 
 const Statistics = () => (

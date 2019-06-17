@@ -1,78 +1,93 @@
 import React from "react"
 import styled from "styled-components"
 import { StaticQuery, graphql } from "gatsby"
+import { TitleStyle, HeadlineStyle, DescriptionStyle } from "../../css/style.js"
 
 const Wrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 107.5px auto 120px auto;
 `
-const CardWrapper = styled.div``
-
-const Title = styled.span`
-  color: #333;
-  font-size: 24px;
-  font-family: KaushanScript-Regular;
-  text-align: center;
-  display: block;
-  margin-bottom: 14px;
-
-  ::first-letter {
-    text-transform: capitalize;
-  }
+const CardWrapper = styled.div`
+  margin-top: 40px;
 `
 
-const Header = styled.span`
-  color: #333;
-  font-size: 30px;
-  font-family: Montserrat-Bold;
-  display: block;
-  text-align: center;
-  text-transform: capitalize;
+const Title = styled.span`
+  margin-bottom: 14px;
 
+  ${TitleStyle}
+`
+
+const Headline = styled.span`
   ::after {
-    content: "";
-    display: block;
-    border-top: 3px solid red;
-    width: 60px;
     margin: 36.5px auto 41.5px auto;
   }
+
+  ${HeadlineStyle}
 `
 
 const Description = styled.span`
-  color: #333;
-  font-size: 15px;
-  display: block;
-  text-align: center;
-  font-family: Roboto-Regular;
-  line-height: 24px;
-  margin-bottom: 87.5px;
-  max-width: 954px;
-  margin: 0 auto 87.5px auto;
+  margin: 0 auto 47.5px auto;
+
+  ${DescriptionStyle}
 `
 
 const Article = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media all and (max-width: 1280px) {
+    justify-content: center;
+  }
 `
 const ImageWrapper = styled.div`
   width: 570px;
   height: 380px;
   position: relative;
-  margin-right: 30px;
+  margin-top: 40px;
+
+  @media all and (max-width: 768px) {
+    width: 429px;
+    height: 285px;
+  }
+
+  @media all and (max-width: 480px) {
+    width: 285px;
+    height: 190px;
+  }
 `
 
 const Image = styled.img`
   position: absolute;
   top: -1px;
   left: -1px;
+  width: 572px;
+  heigh: 382px;
+
+  @media all and (max-width: 768px) {
+    width: 431px;
+    height: 287px;
+  }
+
+  @media all and (max-width: 480px) {
+    width: 287px;
+    height: 192px;
+  }
 `
 
 const Card = styled.div`
-  margin-left: 30px;
   width: 600px;
   padding: 0;
   margin: 0 0 10px 0;
+
+  @media all and (max-width: 768px) {
+    width: 450px;
+  }
+
+  @media all and (max-width: 480px) {
+    width: 300px;
+  }
 `
 
 const CardHeader = styled.div`
@@ -81,9 +96,13 @@ const CardHeader = styled.div`
   border: 1px solid #e5e5e5;
   height: 60px;
   align-items: center;
-  padding: 0 16px 0 20px;
+  padding: 0 20px 0 16px;
   justify-content: space-between;
   box-sizing: border-box;
+
+  @media all and (max-width: 480px) {
+height: 45px;
+  }
 `
 
 const CardHeaderInner = styled.div`
@@ -102,6 +121,7 @@ const CardBody = styled.div`
   box-sizing: border-box;
 `
 const CardDescription = styled.span`
+  color: rgba(153, 153, 153, 255);
   display: block;
   font-size: 15px;
   font-family: "Roboto-LightItalic";
@@ -111,6 +131,15 @@ const CardDescription = styled.span`
   height: 140px;
   overflow-y: scroll;
   padding-right: 25px;
+
+  @media all and (max-width: 768px) {
+    width: 394px;
+  }
+
+  @media all and (max-width: 480px) {
+    width: 230px;
+    font-size: 12px;
+  }
 
   &::-webkit-scrollbar {
     background-color: #f5f5f5;
@@ -124,11 +153,25 @@ const CardDescription = styled.span`
   }
 `
 
-const Icon = styled.img``
+const Icon = styled.img`
+
+  @media all and (max-width: 480px) {
+    width: 16px;
+    heigh: 16px;
+  }
+`
 
 const ArrowIcon = styled.img`
+  width: 22px;
+  heigh: 12px;
+
   &:hover {
     cursor: pointer;
+  }
+
+  @media all and (max-width: 480px) {
+    width: 18px;
+    heigh: 10px;
   }
 `
 
@@ -138,6 +181,11 @@ const Name = styled.span`
   text-transform: capitalize;
   color: #333;
   margin-left: 15px;
+
+  @media all and (max-width: 480px) {
+    font-size: 12px;
+    margin-left: 10px;
+  }
 `
 
 const WhatWeDo = () => (
@@ -206,7 +254,7 @@ class WhatWeDoComponent extends React.Component {
     return (
       <Wrapper>
         <Title>service</Title>
-        <Header>what we do</Header>
+        <Headline>what we do</Headline>
         <Description>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -217,8 +265,6 @@ class WhatWeDoComponent extends React.Component {
           <ImageWrapper>
             <Image
               src={data.allContentfulWhatWeDoImg.edges[2].node.image.fixed.src}
-              width={572}
-              height={382}
             />
           </ImageWrapper>
           <CardWrapper>
@@ -234,13 +280,11 @@ class WhatWeDoComponent extends React.Component {
                     <ArrowIcon
                       src={
                         node.name === this.state.active
-                          ? this.props.data.allContentfulWhatWeDoImg.edges[0]
+                          ? this.props.data.allContentfulWhatWeDoImg.edges[1]
                               .node.image.fixed.src
-                          : this.props.data.allContentfulWhatWeDoImg.edges[1]
+                          : this.props.data.allContentfulWhatWeDoImg.edges[0]
                               .node.image.fixed.src
                       }
-                      width={22}
-                      height={12}
                       alt={element.node.name}
                       onClick={e => this.handleActive(e)}
                     />

@@ -22,6 +22,7 @@ const Inner = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 `
 
 const Intro = props => (
@@ -49,11 +50,12 @@ const Intro = props => (
     `}
     render={data => {
       const { edges } = data.allContentfulIntroImg
+      const { setRef } = props
       return (
-        <Wrapper bg={edges[2].node.image.fixed.src}>
+        <Wrapper bg={edges[2].node.image.fixed.src} ref={setRef} name="intro">
           <Inner>
             <Header
-              references = {props.references}
+              references={props.references}
               searchIconSrc={edges[0].node.image.fixed.src}
               shopIconSrc={edges[1].node.image.fixed.src}
             />

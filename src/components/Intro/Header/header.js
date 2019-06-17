@@ -94,6 +94,15 @@ const NavLink = styled.a`
   }
 `
 
+const Icon = styled.i`
+  color: #fff;
+
+  ::before {
+    font-size: 18px;
+    margin: 0;
+  }
+`
+
 const NavItem = styled.li`
   list-style-type: none;
 
@@ -113,6 +122,10 @@ const NavItem = styled.li`
     }
   }
 
+  &:hover ${Icon} {
+    color: #fce38a;
+  }
+
   @media all and (max-width: 980px) {
     height: 40px;
     display: flex;
@@ -129,10 +142,7 @@ const NavItem = styled.li`
           content: none;
         }
     }
-`
 
-const Image = styled.img`
-  color: red;
 `
 
 const Label = styled.label`
@@ -158,6 +168,52 @@ const Input = styled.input`
   display: none;
 `
 
+const NavIcon = styled.i`
+  width: 100px;
+  height: 100px;
+  display: flex;
+  opacity: ${props => (props.appear ? "1" : "0")};
+  height: ${props => (props.appear ? "100px" : "0")};
+  z-index: ${props => (props.appear ? "1" : "-1")}
+  transition: all 0.5s ease;
+  align-items: center;
+  justify-content: center;
+  border: 7px solid #cccccc
+  border-radius: 50%;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  cursor: pointer;
+  color: #cccccc;
+
+  ::before {
+    margin: 0;
+    font-size: 40px;
+  }
+
+  @media all and (max-width: 1200px) {
+    width: 70px;
+    height: 70px;
+
+    ::before {
+
+      font-size: 30px;
+
+    }
+  }
+
+  @media all and (max-width: 480px) {
+    width: 50px;
+    height: 50px;
+
+    ::before {
+
+      font-size: 20px;
+
+    }
+  }
+`
+
 const links = ["about", "service", "work", "blog", "contact"]
 
 class Header extends React.Component {
@@ -165,6 +221,23 @@ class Header extends React.Component {
     super(props)
     this.state = {
       checked: false,
+      navAppear: false,
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll)
+  }
+
+  handleScroll = event => {
+    if (window.scrollY > 400) {
+      this.setState({
+        navAppear: true,
+      })
+    } else {
+      this.setState({
+        navAppear: false,
+      })
     }
   }
 
@@ -175,6 +248,7 @@ class Header extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     const { shopIconSrc, searchIconSrc } = this.props
     return (
       <Wrapper isChecked={this.state.checked}>
@@ -202,12 +276,23 @@ class Header extends React.Component {
             </NavItem>
           ))}
           <NavItem>
-            <Image src={shopIconSrc} width={18} height={15} />
+            <Icon className="flaticon-shopper" />
           </NavItem>
           <NavItem>
-            <Image src={searchIconSrc} width={18} height={18} />
+            <Icon className="flaticon-search" />
           </NavItem>
         </Nav>
+        <NavIcon
+          className="flaticon-chevron-1"
+          appear={this.state.navAppear}
+          onClick={() =>
+            scrollToComponent(this.props.references["intro"], {
+              offset: 0,
+              align: "top",
+              duration: 1500,
+            })
+          }
+        />
       </Wrapper>
     )
   }

@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import { TitleStyle, HeadlineStyle, DescriptionStyle } from "../../css/style.js"
 
 const Wrapper = styled.div`
   width: 100%;
@@ -11,44 +12,34 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.span`
-  font-size: 24px;
-  text-align: center;
-  font-family: "KaushanScript-Regular";
-  display: block;
+  ${TitleStyle}
 `
-const Header = styled.span`
-  font-family: "Montserrat-Bold";
-  font-size: 30px;
-  text-align: center;
-  display: block;
-  text-transform: uppercase;
+const Headline = styled.span`
   margin-top: 15.5px;
 
   ::after {
-    content: "";
-    border-bottom: 3px solid #f38181;
-    width: 60px;
-    display: block;
     margin: 36.5px auto 41.5px auto;
   }
+
+  ${HeadlineStyle}
 `
 
 const Description = styled.span`
-  font-size: 15px;
-  font-family: "Roboto-Regular";
-  line-height: 24px;
-  display: block;
-  text-align: center;
-  max-width: 960px;
   margin: 0 auto;
   margin-bottom: 87.5px;
-  color: rgba(153, 153, 153, 255);
+
+  ${DescriptionStyle}
 `
 
 const ImageWrapper = styled.div`
   width: 380px;
   height: 470px;
   background: #95e1d3;
+
+  @media all and (max-width: 480px) {
+    width: 260px;
+    height: 322px;
+  }
 `
 
 const Name = styled.span`
@@ -75,6 +66,10 @@ const TeamWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @media all and (max-width: 1200px) {
+    justify-content: space-evenly;
+  }
 `
 
 const TeamMate = styled.div``
@@ -87,6 +82,11 @@ const IconWrapper = styled.div`
 `
 const Icon = styled.i`
   color: #f38181;
+
+  ::before{
+    font-size: 26px;
+    margin-left: 0;
+  }
 `
 
 const IconBox = styled.div`
@@ -96,6 +96,7 @@ const IconBox = styled.div`
   display: flex;
   box-sizing: border-box;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
 
   &:not(:first-child) {
@@ -137,6 +138,11 @@ const Image = styled.div`
   &:hover ${IconWrapper} {
     display: flex;
   }
+
+  @media all and (max-width: 480px) {
+    width: 262px;
+    height: 324px;
+  }
 `
 
 const WhoWeAre = () => (
@@ -175,13 +181,11 @@ const WhoWeAre = () => (
       }
     `}
     render={data => {
-      console.log(data)
       const teamMates = data.allContentfulWhoWeAre.edges
-      console.log(teamMates)
       return (
         <Wrapper>
           <Title>who we are</Title>
-          <Header>meet our team</Header>
+          <Headline>meet our team</Headline>
           <Description>
             {
               data.allContentfulWhoWeAreDescription.edges[0].node.description
@@ -223,4 +227,3 @@ const WhoWeAre = () => (
 )
 
 export default WhoWeAre
-//

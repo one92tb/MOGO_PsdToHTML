@@ -1,5 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
+import { TitleStyle, HeadlineStyle } from "../../css/style.js"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
@@ -39,49 +40,16 @@ const Inner = styled.div`
 `
 
 const Title = styled.span`
-  font-family: KaushanScript-Regular;
-  font-size: 24px;
-  text-align: center;
-  display: block;
-  color: #333;
+  ${TitleStyle}
+
   margin: 0;
   padding: 108.5px 0 17px 0;
-
-  ::first-letter {
-    text-transform: capitalize;
-  }
-
-  @media all and (max-width: 480px) {
-    font-size: 20px;
-  }
 `
-const Header = styled.span`
-  font-family: Montserrat-Bold;
-  color: #333;
-  font-size: 30px;
-  display: block;
-  text-transform: uppercase;
-  text-align: center;
-
+const Headline = styled.span`
   ::after {
-    content: "";
-    display: block;
-    width: 60px;
-    border-top: 3px solid #f38181;
     margin: 34.5px auto 45px auto;
   }
-
-  @media all and (max-width: 480px) {
-    font-size: 24px;
-
-    ::after {
-      content: "";
-      display: block;
-      border: 1.5px solid #f38181;
-      width: 40px;
-      margin: 28px auto 32px auto;
-    }
-  }
+  ${HeadlineStyle}
 `
 const TabletImg = styled.img`
   position: relative;
@@ -161,7 +129,7 @@ const Feature = () => (
         <Wrapper bgSrc={edges[2].node.image.fixed.src}>
           <Inner>
             <Title>for all devices</Title>
-            <Header>unique design</Header>
+            <Headline>unique design</Headline>
             <TabletImg src={edges[0].node.image.fixed.src} />
             <PhoneImg src={edges[1].node.image.fixed.src} />
           </Inner>

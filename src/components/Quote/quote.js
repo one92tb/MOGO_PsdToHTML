@@ -18,11 +18,14 @@ const Inner = styled.div`
 const ArrowLeft = styled.img`
   display: flex;
   align-items: center;
-  margin-left: 23px;
-  margin-right: 75px;
+  margin: 0 75px 0 23px;
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media all and (max-width: 768px) {
+    margin: 0 30px 0 15px;
   }
 `
 const ArrowRight = styled.img`
@@ -30,6 +33,10 @@ const ArrowRight = styled.img`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media all and (max-width: 768px) {
+    margin: 0 15px 0 30px;
   }
 `
 const Text = styled.span`
@@ -41,6 +48,11 @@ const Text = styled.span`
   margin: 4px 0 12px 0;
   color: rgba(153, 153, 153, 255);
 
+  @media all and (max-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
   ::before {
     content: '"';
   }
@@ -49,7 +61,15 @@ const Text = styled.span`
     content: '"';
   }
 `
-const Icon = styled.img``
+const Icon = styled.img`
+  width: 63px;
+  height: 61px;
+
+  @media all and (max-width: 768px) {
+    width: 42px;
+    height: 40px;
+  }
+`
 
 const IconWrapper = styled.div`
   width: 150px;
@@ -60,10 +80,23 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media all and (max-width: 1280px) {
+    height: 120px;
+  }
+
+  @media all and (max-width: 768px) {
+    margin-right: 30px;
+    height: 100px;
+  }
+
+  @media all and (max-width: 480px) {
+    display: none;
+  }
 `
 
 const TextWrapper = styled.div`
-  width: 770px;
+  max-width: 767px;
 `
 
 const Signature = styled.span`
@@ -85,6 +118,15 @@ const Signature = styled.span`
     left: 0px;
 
     width: 60px;
+  }
+
+  @media all and (max-width: 768px) {
+    font-size: 18px;
+    padding-left: 50px;
+
+    ::before {
+      width: 40px;
+    }
   }
 `
 

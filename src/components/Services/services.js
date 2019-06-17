@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { StaticQuery, graphql } from "gatsby"
+import { TitleStyle, HeadlineStyle } from "../../css/style.js"
 
 const Wrapper = styled.div`
   max-width: 1200px;
@@ -10,45 +11,17 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.span`
-  font-family: KaushanScript-Regular;
-  font-size: 24px;
-  text-align: center;
-  display: block;
   padding: 107.5px 0 15px 0;
-  color: #333;
 
-  @media all and (max-width: 480px) {
-    font-size: 20px;
-  }
+  ${TitleStyle}
 `
 
-const Header = styled.span`
-  font-family: Montserrat-Bold;
-  font-size: 30px;
-  text-transform: uppercase;
-  display: block;
-  text-align: center;
-  color: #333;
-
+const Headline = styled.span`
   ::after {
-    content: "";
-    display: block;
-    border: 1.5px solid #f38181;
-    width: 60px;
     margin: 36.5px auto 15.5px auto;
   }
 
-  @media all and (max-width: 480px) {
-    font-size: 24px;
-
-    ::after {
-      content: "";
-      display: block;
-      border: 1.5px solid #f38181;
-      width: 40px;
-      margin: 28px auto 32px auto;
-    }
-  }
+  ${HeadlineStyle}
 `
 
 const Image = styled.img``
@@ -144,14 +117,14 @@ const Services = props => (
 )
 
 const ServicesComponent = props => {
-  console.log(props);
-  const  {setRef}  = props
+  console.log(props)
+  const { setRef } = props
   const services = props.data.allContentfulServices.edges
 
   return (
     <Wrapper name="service" ref={setRef}>
-      <Title>We work with</Title>
-      <Header>amazing services</Header>
+      <Title>we work with</Title>
+      <Headline>amazing services</Headline>
       <ServicesBox>
         {services
           .sort((a, b) => a.node.order - b.node.order)
