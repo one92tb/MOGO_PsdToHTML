@@ -252,9 +252,6 @@ class Header extends React.Component {
   }
 
   render() {
-    if (this.props.references) {
-      console.log(this.props.references.about.offsetTop)
-    }
     const { shopIconSrc, searchIconSrc } = this.props
     return (
       <Wrapper isChecked={this.state.checked}>
