@@ -29,7 +29,8 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "scroll-to": "0.0.2"
   },
   "keywords": [
     "gatsby"
