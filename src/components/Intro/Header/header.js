@@ -261,18 +261,17 @@ class Header extends React.Component {
         <Input type="checkbox" id="toggle" onClick={this.handleCheckBox} />
         <Nav isChecked={this.state.checked}>
           {links.map((link, id) => (
-            <NavItem key={id}>
-              <NavLink
-                onClick={() =>
-                  scrollToComponent(this.props.references[link], {
-                    offset: 0,
-                    align: "top",
-                    duration: 1500,
-                  })
-                }
-              >
-                {link}
-              </NavLink>
+            <NavItem
+              key={id}
+              onClick={() =>
+                scrollToComponent(this.props.references[link], {
+                  offset: 0,
+                  align: "top",
+                  duration: 1500,
+                })
+              }
+            >
+              <NavLink>{link}</NavLink>
             </NavItem>
           ))}
           <NavItem>
