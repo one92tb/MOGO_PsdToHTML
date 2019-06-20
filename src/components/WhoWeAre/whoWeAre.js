@@ -112,7 +112,7 @@ const IconBox = styled.div`
   }
 `
 
-const Image = styled.div`
+const ImageBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -197,7 +197,7 @@ const WhoWeAre = () => (
               return (
                 <TeamMate key={mate.node.name}>
                   <ImageWrapper>
-                    <Image imageSrc={mate.node.image.fixed.src}>
+                    <ImageBox imageSrc={mate.node.image.fixed.src}>
                       <IconWrapper>
                         <IconBox>
                           <Icon className="flaticon-facebook" />
@@ -212,7 +212,7 @@ const WhoWeAre = () => (
                           <Icon className="flaticon-instagram" />
                         </IconBox>
                       </IconWrapper>
-                    </Image>
+                    </ImageBox>
                   </ImageWrapper>
                   <Name>{mate.node.name}</Name>
                   <Profession>{mate.node.profession}</Profession>

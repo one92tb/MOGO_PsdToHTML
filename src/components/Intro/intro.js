@@ -42,6 +42,7 @@ const Intro = props => (
                   src
                   srcSet
                 }
+
               }
             }
           }

@@ -101,7 +101,7 @@ const CardHeader = styled.div`
   box-sizing: border-box;
 
   @media all and (max-width: 480px) {
-height: 45px;
+    height: 45px;
   }
 `
 
@@ -154,7 +154,6 @@ const CardDescription = styled.span`
 `
 
 const Icon = styled.img`
-
   @media all and (max-width: 480px) {
     width: 16px;
     heigh: 16px;
@@ -264,7 +263,10 @@ class WhatWeDoComponent extends React.Component {
         <Article>
           <ImageWrapper>
             <Image
-              src={data.allContentfulWhatWeDoImg.edges[2].node.image.fixed.src}
+              data-src={
+                data.allContentfulWhatWeDoImg.edges[2].node.image.fixed.src
+              }
+              className="lazyload"
             />
           </ImageWrapper>
           <CardWrapper>
@@ -278,13 +280,14 @@ class WhatWeDoComponent extends React.Component {
                       <Name>{node.name}</Name>
                     </CardHeaderInner>
                     <ArrowIcon
-                      src={
+                      data-src={
                         node.name === this.state.active
                           ? this.props.data.allContentfulWhatWeDoImg.edges[1]
                               .node.image.fixed.src
                           : this.props.data.allContentfulWhatWeDoImg.edges[0]
                               .node.image.fixed.src
                       }
+                      className="lazyload"
                       alt={element.node.name}
                       onClick={e => this.handleActive(e)}
                     />

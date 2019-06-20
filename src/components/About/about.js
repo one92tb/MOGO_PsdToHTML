@@ -136,7 +136,8 @@ const AboutComponent = props => {
             <Rectangle key={element.node.name}>
               <Image
                 alt={element.node.name}
-                src={element.node.image.fixed.src}
+                data-src={element.node.image.fixed.src}
+                className="lazyload"
               />
             </Rectangle>
           ))}

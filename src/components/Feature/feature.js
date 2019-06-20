@@ -130,8 +130,14 @@ const Feature = () => (
           <Inner>
             <Title>for all devices</Title>
             <Headline>unique design</Headline>
-            <TabletImg src={edges[0].node.image.fixed.src} />
-            <PhoneImg src={edges[1].node.image.fixed.src} />
+            <TabletImg
+              className="lazyload"
+              data-src={edges[0].node.image.fixed.src}
+            />
+            <PhoneImg
+              className="lazyload"
+              data-src={edges[1].node.image.fixed.src}
+            />
           </Inner>
         </Wrapper>
       )
