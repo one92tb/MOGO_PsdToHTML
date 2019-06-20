@@ -246,9 +246,11 @@ class Header extends React.Component {
     })
   }
 
-  scrollToRef = a => {
-    console.log(a)
-    window.scrollTo(0, a)
+  scrollToRef = pos => {
+    this.setState({
+      checked: !this.state.checked,
+    })
+    window.scrollTo(0, pos)
   }
 
   render() {

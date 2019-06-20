@@ -36,13 +36,12 @@ const Intro = props => (
               name
               image {
                 title
-                fixed {
+                fixed(quality: 100) {
                   width
                   height
                   src
                   srcSet
                 }
-
               }
             }
           }
@@ -50,16 +49,13 @@ const Intro = props => (
       }
     `}
     render={data => {
+      console.log(data)
       const { edges } = data.allContentfulIntroImg
       const { setRef } = props
       return (
-        <Wrapper bg={edges[2].node.image.fixed.src} ref={setRef} name="intro">
+        <Wrapper bg={edges[0].node.image.fixed.src} ref={setRef} name="intro">
           <Inner>
-            <Header
-              references={props.references}
-              searchIconSrc={edges[0].node.image.fixed.src}
-              shopIconSrc={edges[1].node.image.fixed.src}
-            />
+            <Header references={props.references} />
             <Jumbotron />
             <Slider />
           </Inner>

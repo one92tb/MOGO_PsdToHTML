@@ -201,7 +201,7 @@ const WhatWeDo = () => (
               }
               image {
                 title
-                fixed {
+                fixed(quality: 100) {
                   width
                   height
                   src
@@ -218,7 +218,7 @@ const WhatWeDo = () => (
               name
               image {
                 title
-                fixed {
+                fixed(quality: 100) {
                   width
                   height
                   src

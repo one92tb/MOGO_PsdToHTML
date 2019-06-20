@@ -83,7 +83,7 @@ const IconWrapper = styled.div`
 const Icon = styled.i`
   color: #f38181;
 
-  ::before{
+  ::before {
     font-size: 26px;
     margin-left: 0;
   }
@@ -157,7 +157,7 @@ const WhoWeAre = () => (
               profession
               image {
                 title
-                fixed {
+                fixed(quality: 100) {
                   width
                   height
                   src

@@ -111,7 +111,7 @@ const Feature = () => (
               name
               image {
                 title
-                fixed {
+                fixed(quality: 100) {
                   width
                   height
                   src
