@@ -5,7 +5,6 @@ import styled from "styled-components"
 
 const Wrapper = styled.div`
   width: 100%;
-
   position: relative;
   display: block;
   height: 852px;
@@ -19,16 +18,22 @@ const Wrapper = styled.div`
     background: url(${props => props.bgSrc});
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.15;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     position: absolute;
     z-index: -1;
-    background-size: cover;
-    background-repeat: no-repeat;
   }
+`
+
+const Image = styled.img`
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
 `
 
 const Inner = styled.div`
@@ -126,7 +131,11 @@ const Feature = () => (
     render={data => {
       const { edges } = data.allContentfulUniqueImg
       return (
-        <Wrapper bgSrc={edges[2].node.image.fixed.src}>
+        <Wrapper>
+          <Image
+            data-src={edges[2].node.image.fixed.src}
+            className="lazyload"
+          />
           <Inner>
             <Title>for all devices</Title>
             <Headline>unique design</Headline>

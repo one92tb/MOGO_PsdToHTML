@@ -6,15 +6,9 @@ import Jumbotron from "./Jumbotron/jumbotron"
 import Slider from "./Slider/slider"
 
 const Wrapper = styled.div`
+  position: relative;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(243, 138, 129, 0.7), rgba(251, 227, 137, 0.7)), url(${props =>
-    props.bg});
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  @media all and (max-width: 980px) {
-    background: linear-gradient(to bottom, rgba(243, 138, 129, 0.8), rgba(251, 227, 137, 0.8));
-  }
+  background: linear-gradient(to bottom, rgba(230,129,130, 0.8), rgba(251, 227, 137, 1));
 }
 `
 
@@ -23,6 +17,19 @@ const Inner = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+`
+
+const Image = styled.img`
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+
+  @media all and (max-width: 980px) {
+    display: none;
+  }
 `
 
 const Intro = props => (
@@ -53,7 +60,8 @@ const Intro = props => (
       const { edges } = data.allContentfulIntroImg
       const { setRef } = props
       return (
-        <Wrapper bg={edges[0].node.image.fixed.src} ref={setRef} name="intro">
+        <Wrapper ref={setRef} name="intro">
+          <Image data-src={edges[0].node.image.fixed.src} className="lazyload" />
           <Inner>
             <Header references={props.references} />
             <Jumbotron />
@@ -66,3 +74,4 @@ const Intro = props => (
 )
 
 export default Intro
+//<Image src={edges[0].node.image.fixed.src} />

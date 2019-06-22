@@ -31,16 +31,7 @@ const Description = styled.span`
   ${DescriptionStyle}
 `
 
-const ImageWrapper = styled.div`
-  width: 380px;
-  height: 470px;
-  background: #95e1d3;
 
-  @media all and (max-width: 480px) {
-    width: 260px;
-    height: 322px;
-  }
-`
 
 const Name = styled.span`
   font-size: 14px;
@@ -112,6 +103,14 @@ const IconBox = styled.div`
   }
 `
 
+const Image = styled.img`
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`
+
 const ImageBox = styled.div`
   display: flex;
   justify-content: center;
@@ -121,18 +120,15 @@ const ImageBox = styled.div`
   left: -1px;
   width: 382px;
   height: 472px;
-  background-image: url(${props => props.imageSrc});
-  background-repeat: no-repeat;
 
   &:hover {
     top: -11px;
     left: -11px;
     background: linear-gradient(
-        to bottom,
-        rgba(243, 138, 129, 0.8),
-        rgba(251, 227, 137, 0.8)
-      ),
-      url(${props => props.imageSrc});
+      to bottom,
+      rgba(230, 129, 130, 0.8),
+      rgba(251, 227, 137, 0.8)
+    );
   }
 
   &:hover ${IconWrapper} {
@@ -142,6 +138,23 @@ const ImageBox = styled.div`
   @media all and (max-width: 480px) {
     width: 262px;
     height: 324px;
+  }
+`
+
+const ImageWrapper = styled.div`
+  width: 380px;
+  height: 470px;
+  background: #95e1d3;
+  position: relative;
+
+  @media all and (max-width: 480px) {
+    width: 260px;
+    height: 322px;
+  }
+
+  &:hover ${Image} {
+    top: -11px;
+    left: -11px;
   }
 `
 
@@ -197,7 +210,11 @@ const WhoWeAre = () => (
               return (
                 <TeamMate key={mate.node.name}>
                   <ImageWrapper>
-                    <ImageBox imageSrc={mate.node.image.fixed.src}>
+                    <Image
+                      data-src={mate.node.image.fixed.src}
+                      className="lazyload"
+                    />
+                    <ImageBox>
                       <IconWrapper>
                         <IconBox>
                           <Icon className="flaticon-facebook" />
