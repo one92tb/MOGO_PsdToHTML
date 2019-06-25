@@ -180,8 +180,8 @@ const NavIcon = styled.i`
   border: 7px solid #cccccc
   border-radius: 50%;
   position: fixed;
-  bottom: 5%;
-  right: 5%;
+  bottom: 2%;
+  right: 2%;
   cursor: pointer;
   color: #cccccc;
 
@@ -254,7 +254,6 @@ class Header extends React.Component {
   }
 
   render() {
-    const { shopIconSrc, searchIconSrc } = this.props
     return (
       <Wrapper isChecked={this.state.checked}>
         <Logo>MoGo</Logo>

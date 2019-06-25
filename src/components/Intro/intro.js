@@ -56,7 +56,6 @@ const Intro = props => (
       }
     `}
     render={data => {
-      console.log(data)
       const { edges } = data.allContentfulIntroImg
       const { setRef } = props
       return (

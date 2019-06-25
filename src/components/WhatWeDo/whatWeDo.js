@@ -177,8 +177,8 @@ const ArrowIcon = styled.img`
 const Name = styled.span`
   font-size: 14px;
   font-family: "Montserrat-Regular";
-  text-transform: capitalize;
-  color: #333;
+  text-transform: uppercase;
+  color: rgba(51, 51, 51, 255);
   margin-left: 15px;
 
   @media all and (max-width: 480px) {
@@ -270,37 +270,38 @@ class WhatWeDoComponent extends React.Component {
             />
           </ImageWrapper>
           <CardWrapper>
-            {data.allContentfulWhatWeDo.edges.map((element, id, arr) => {
-              const { node } = element
-              return (
-                <Card key={id}>
-                  <CardHeader>
-                    <CardHeaderInner>
-                      <Icon src={node.image.fixed.src} />
-                      <Name>{node.name}</Name>
-                    </CardHeaderInner>
-                    <ArrowIcon
-                      data-src={
-                        node.name === this.state.active
-                          ? this.props.data.allContentfulWhatWeDoImg.edges[1]
-                              .node.image.fixed.src
-                          : this.props.data.allContentfulWhatWeDoImg.edges[0]
-                              .node.image.fixed.src
-                      }
-                      className="lazyload"
-                      alt={element.node.name}
-                      onClick={e => this.handleActive(e)}
-                    />
-                  </CardHeader>
-                  <CardBody name={node.name} activeStatus={this.state.active}>
-                    <CardDescription>
-                      {node.description.description} <br /> <br />{" "}
-                      {node.description.description}
-                    </CardDescription>
-                  </CardBody>
-                </Card>
-              )
-            })}
+            {data.allContentfulWhatWeDo.edges
+              .sort((a, b) => a.node.order - b.node.order)
+              .map((element, id, arr) => {
+                const { node } = element
+                return (
+                  <Card key={id}>
+                    <CardHeader>
+                      <CardHeaderInner>
+                        <Icon src={node.image.fixed.src} />
+                        <Name>{node.name}</Name>
+                      </CardHeaderInner>
+                      <ArrowIcon
+                        src={
+                          node.name === this.state.active
+                            ? data.allContentfulWhatWeDoImg.edges[1].node.image
+                                .fixed.src
+                            : data.allContentfulWhatWeDoImg.edges[0].node.image
+                                .fixed.src
+                        }
+                        alt={element.node.name}
+                        onClick={e => this.handleActive(e)}
+                      />
+                    </CardHeader>
+                    <CardBody name={node.name} activeStatus={this.state.active}>
+                      <CardDescription>
+                        {node.description.description} <br /> <br />{" "}
+                        {node.description.description}
+                      </CardDescription>
+                    </CardBody>
+                  </Card>
+                )
+              })}
           </CardWrapper>
         </Article>
       </Wrapper>

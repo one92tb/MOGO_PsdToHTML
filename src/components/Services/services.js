@@ -117,7 +117,6 @@ const Services = props => (
 )
 
 const ServicesComponent = props => {
-  console.log(props)
   const { setRef } = props
   const services = props.data.allContentfulServices.edges
 

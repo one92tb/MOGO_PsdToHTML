@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import { css } from "styled-components"
 
 const TitleStyle = css`
   font-family: "KaushanScript-Regular";
