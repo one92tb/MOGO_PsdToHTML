@@ -182,20 +182,31 @@ const OurWork = props => (
           </Descripton>
           <ImagesWrapper>
             <Column>
-              <Image src={edges[0].node.image.fixed.src} />
-              <Image src={edges[1].node.image.fixed.src} />
+              <Image
+                data-src={edges[0].node.image.fixed.src}
+                className="lazyload"
+              />
+              <Image
+                data-src={edges[1].node.image.fixed.src}
+                className="lazyload"
+              />
             </Column>
             <Column>
-              <Image src={edges[2].node.image.fixed.src} />
+              <Image
+                data-src={edges[2].node.image.fixed.src}
+                className="lazyload"
+              />
               <ImageBox>
                 <Image
                   name={edges[3].node.name}
-                  src={edges[3].node.image.fixed.src}
+                  data-src={edges[3].node.image.fixed.src}
+                  className="lazyload"
                 />
                 <Icon
-                  src={
+                  data-src={
                     data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
                   }
+                  className="lazyload"
                 />
                 <ImageHeadline>creatively designed</ImageHeadline>
                 <ImageText>lorem ipsum dolor sit</ImageText>
@@ -203,13 +214,20 @@ const OurWork = props => (
             </Column>
             <Column>
               <Image
-                src={edges[4].node.image.fixed.src}
+                data-src={edges[4].node.image.fixed.src}
                 name={edges[4].node.name}
+                className="lazyload"
               />
             </Column>
             <Column>
-              <Image src={edges[5].node.image.fixed.src} />
-              <Image src={edges[6].node.image.fixed.src} />
+              <Image
+                data-src={edges[5].node.image.fixed.src}
+                className="lazyload"
+              />
+              <Image
+                data-src={edges[6].node.image.fixed.src}
+                className="lazyload"
+              />
             </Column>
           </ImagesWrapper>
         </Wrapper>
