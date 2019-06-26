@@ -26,7 +26,7 @@ const Logos = loadable(() => import("../components/Logos/logos"))
 const OurWork = loadable(() => import("../components/OurWork/ourWork"))
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
 `
 
 class IndexPage extends React.Component {
