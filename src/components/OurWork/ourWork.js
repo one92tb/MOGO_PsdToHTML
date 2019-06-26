@@ -5,7 +5,6 @@ import { TitleStyle, HeadlineStyle, DescriptionStyle } from "../../css/style.js"
 
 const Wrapper = styled.div`
   padding-top: 108px;
-  max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
 `
@@ -40,66 +39,47 @@ const ImagesWrapper = styled.div`
 `
 
 const Image = styled.img`
-  width: 480px;
-  height: ${props => (props.name === "ourWork_5" ? "784px" : "392px")};
-  top: 0;
-  z-index: -1;
-  position: ${props => {
-      console.log(props.name)
-      return props.name === "ourWork_4" ? "absolute" : "relative"
-    }}
-    @media all and (min-width: 960px) and (max-width: 1919px) {
-    height: ${props => (props.name === "ourWork_5" ? "804px" : "392px")};
-  }
-
-  @media all and (max-width: 1919px) {
-    margin-bottom: 20px;
-  }
-
-  @media all and (max-width: 768px) {
-    width: 384px;
-    height: ${props => (props.name === "ourWork_5" ? "627px" : "314px")};
-  }
-
-  @media all and (max-width: 480px) {
-    width: 288px;
-    height: ${props => (props.name === "ourWork_5" ? "470px" : "235px")};
-  }
+  width: 100%;
+  height: auto;
+  background-size: cover;
 `
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
+  width: 25%;
+
+  @media all and (max-width: 1200px) {
+    width: 50%;
+  }
+
+  @media all and (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 const ImageBox = styled.div`
-  width: 480px;
-  height: 392px;
+  width: 100%;
+  height: auto;
   background: linear-gradient(
     to bottom,
     rgba(230, 129, 130, 0.8),
     rgba(251, 227, 137, 1)
   );
+  background-size: cover;
 
   padding-top: 161px;
   box-sizing: border-box;
   position: relative;
 
   @media all and (max-width: 1919px) {
-    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
   }
+`
 
-  @media all and (max-width: 768px) {
-    width: 384px;
-    height: 314px;
-    padding-top: 100px;
-  }
-
-  @media all and (max-width: 480px) {
-    width: 288px;
-    height: 235px;
-    padding-top: 62px;
-  }
+const ContentWrapper = styled.div`
+  width: 100%;
 `
 
 const Icon = styled.img`
@@ -124,6 +104,33 @@ const ImageText = styled.span`
   color: #fff;
   display: block;
   text-align: center;
+`
+
+const Rectangle = styled.div`
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+      to bottom,
+      rgba(
+        243,
+        138,
+        129,
+        ${props => (props.alt === "ourWork_4" ? "0.8" : "0")}
+      ),
+      rgba(251, 227, 137, ${props => (props.alt === "ourWork_4" ? "0.8" : "0")})
+    ),
+    url(${props => props.imageSrc});
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  ::before {
+    content: "";
+    display: block;
+    padding-top: ${props => (props.alt === "ourWork_5" ? "162.5%" : "81.25%")};
+  }
 `
 
 const OurWork = props => (
@@ -182,52 +189,51 @@ const OurWork = props => (
           </Descripton>
           <ImagesWrapper>
             <Column>
-              <Image
-                data-src={edges[0].node.image.fixed.src}
-                className="lazyload"
-              />
-              <Image
-                data-src={edges[1].node.image.fixed.src}
-                className="lazyload"
-              />
+              <Rectangle
+                imageSrc={edges[0].node.image.fixed.src}
+                alt={edges[0].node.name}
+              ></Rectangle>
+              <Rectangle
+                imageSrc={edges[1].node.image.fixed.src}
+                alt={edges[1].node.name}
+              ></Rectangle>
             </Column>
             <Column>
-              <Image
-                data-src={edges[2].node.image.fixed.src}
-                className="lazyload"
-              />
-              <ImageBox>
-                <Image
-                  name={edges[3].node.name}
-                  data-src={edges[3].node.image.fixed.src}
-                  className="lazyload"
-                />
-                <Icon
-                  data-src={
-                    data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
-                  }
-                  className="lazyload"
-                />
-                <ImageHeadline>creatively designed</ImageHeadline>
-                <ImageText>lorem ipsum dolor sit</ImageText>
-              </ImageBox>
+              <Rectangle
+                imageSrc={edges[2].node.image.fixed.src}
+                alt={edges[2].node.name}
+              ></Rectangle>
+              <Rectangle
+                imageSrc={edges[3].node.image.fixed.src}
+                alt={edges[3].node.name}
+              >
+                <ContentWrapper>
+                  <Icon
+                    data-src={
+                      data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
+                    }
+                    className="lazyload"
+                  />
+                  <ImageHeadline>creatively designed</ImageHeadline>
+                  <ImageText>lorem ipsum dolor sit</ImageText>
+                </ContentWrapper>
+              </Rectangle>
             </Column>
             <Column>
-              <Image
-                data-src={edges[4].node.image.fixed.src}
-                name={edges[4].node.name}
-                className="lazyload"
-              />
+              <Rectangle
+                imageSrc={edges[4].node.image.fixed.src}
+                alt={edges[4].node.name}
+              ></Rectangle>
             </Column>
             <Column>
-              <Image
-                data-src={edges[5].node.image.fixed.src}
-                className="lazyload"
-              />
-              <Image
-                data-src={edges[6].node.image.fixed.src}
-                className="lazyload"
-              />
+              <Rectangle
+                imageSrc={edges[5].node.image.fixed.src}
+                alt={edges[5].node.name}
+              ></Rectangle>
+              <Rectangle
+                imageSrc={edges[6].node.image.fixed.src}
+                alt={edges[6].node.name}
+              ></Rectangle>
             </Column>
           </ImagesWrapper>
         </Wrapper>
@@ -237,3 +243,14 @@ const OurWork = props => (
 )
 
 export default OurWork
+
+/*
+<Icon
+  data-src={
+    data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
+  }
+  className="lazyload"
+/>
+<ImageHeadline>creatively designed</ImageHeadline>
+<ImageText>lorem ipsum dolor sit</ImageText>
+*/

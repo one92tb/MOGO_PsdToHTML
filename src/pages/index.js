@@ -27,11 +27,6 @@ const OurWork = loadable(() => import("../components/OurWork/ourWork"))
 
 const Container = styled.div`
   width: 100vw;
-  overflow: hiddne;
-`
-
-const Inner = styled.div`
-  overflow: auto;
 `
 
 class IndexPage extends React.Component {
@@ -50,18 +45,16 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <Container>
-          <Inner>
-            <Intro references={this.references} setRef={this.setRef} />
-            <About setRef={this.setRef} />
-            <Statistics />
-            <Services setRef={this.setRef} />
-            <Feature />
-            <WhatWeDo />
-            <Quote />
-            <WhoWeAre />
-            <Logos />
-            <OurWork setRef={this.setRef} />
-          </Inner>
+          <Intro references={this.references} setRef={this.setRef} />
+          <About setRef={this.setRef} />
+          <Statistics />
+          <Services setRef={this.setRef} />
+          <Feature />
+          <WhatWeDo />
+          <Quote />
+          <WhoWeAre />
+          <Logos />
+          <OurWork setRef={this.setRef} />
         </Container>
       </Layout>
     )
