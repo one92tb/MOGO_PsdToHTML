@@ -24,6 +24,7 @@ const Quote = loadable(() => import("../components/Quote/quote"))
 const WhoWeAre = loadable(() => import("../components/WhoWeAre/whoWeAre"))
 const Logos = loadable(() => import("../components/Logos/logos"))
 const OurWork = loadable(() => import("../components/OurWork/ourWork"))
+const Quote2 = loadable(() => import("../components/Quote2/quote2"))
 
 const Container = styled.div`
   width: 100%;
@@ -55,6 +56,7 @@ class IndexPage extends React.Component {
           <WhoWeAre />
           <Logos />
           <OurWork setRef={this.setRef} />
+          <Quote2 />
         </Container>
       </Layout>
     )
