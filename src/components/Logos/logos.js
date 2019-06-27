@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const Wrapper = styled.div`
   padding: 51px 0 50px 0;
-  background: #f8f8f8;
+  background: #e3e3e3;
 `
 
 const Inner = styled.div`

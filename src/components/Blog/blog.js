@@ -163,7 +163,7 @@ const Day = styled.span`
   display: block;
 `
 
-const Blog = () => (
+const Blog = props => (
   <StaticQuery
     query={graphql`
       query {
@@ -195,7 +195,7 @@ const Blog = () => (
       const { edges } = data.allContentfulBlog
       console.log(edges)
       return (
-        <Wrapper>
+        <Wrapper name="blog" ref={props.setRef}>
           <Title>happy client</Title>
           <Headline>what people say</Headline>
           <BlogWrapper>

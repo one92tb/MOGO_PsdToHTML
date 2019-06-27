@@ -16,6 +16,8 @@ const OurWork = loadable(() => import("../components/OurWork/ourWork"))
 const Quote2 = loadable(() => import("../components/Quote2/quote2"))
 const People = loadable(() => import("../components/People/people"))
 const Blog = loadable(() => import("../components/Blog/blog"))
+const OpenMap = loadable(() => import("../components/OpenMap/openMap"))
+const Contact = loadable(() => import("../components/Contact/contact"))
 
 const Container = styled.div`
   width: 100%;
@@ -49,7 +51,9 @@ class IndexPage extends React.Component {
           <OurWork setRef={this.setRef} />
           <Quote2 />
           <People />
-          <Blog />
+          <Blog setRef={this.setRef}/>
+          <OpenMap />
+          <Contact setRef={this.setRef}/>
         </Container>
       </Layout>
     )

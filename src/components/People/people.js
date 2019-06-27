@@ -124,7 +124,7 @@ const People = () => (
               description
               image {
                 title
-                fixed {
+                fixed(quality: 100) {
                   width
                   height
                   src
@@ -141,7 +141,7 @@ const People = () => (
               name
               image {
                 title
-                fixed {
+                fixed(quality: 100) {
                   width
                   height
                   src
@@ -173,8 +173,7 @@ const People = () => (
                 .map((person, id) => (
                   <PersonWrapper key={id}>
                     <PersonImage
-                      className="lazyload"
-                      data-src={person.node.image.fixed.src}
+                      src={person.node.image.fixed.src}
                       alt={person.node.image.title}
                     />
                     <DescriptionWrapper>
