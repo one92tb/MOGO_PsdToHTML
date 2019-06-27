@@ -3,7 +3,7 @@ import { css } from "styled-components"
 const TitleStyle = css`
   font-family: "KaushanScript-Regular";
   font-size: 24px;
-  color: #333;
+  color: rgba(51, 51, 51, 255);
   text-align: center;
   display: block;
 
@@ -18,7 +18,7 @@ const TitleStyle = css`
 
 const HeadlineStyle = css`
   font-family: "Montserrat-Bold";
-  color: #333;
+  color: rgba(51, 51, 51, 255);
   font-size: 30px;
   display: block;
   text-transform: uppercase;

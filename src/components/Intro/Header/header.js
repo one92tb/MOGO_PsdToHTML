@@ -98,7 +98,6 @@ const Icon = styled.i`
 
   ::before {
     font-size: 18px;
-    margin: 0;
   }
 `
 

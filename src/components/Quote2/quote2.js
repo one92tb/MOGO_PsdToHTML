@@ -12,6 +12,15 @@ const Inner = styled.div`
   padding: 98px 25px 128px 23px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  @media all and (max-width: 1199px) {
+    justify-content: space-evenly;
+  }
+
+  @media all and (max-width: 480px) {
+    padding: 60px 12px 80px 12px;
+  }
 `
 
 const ArrowLeft = styled.img`
@@ -47,6 +56,10 @@ const TextWrapper = styled.div`
   max-width: 767px;
   padding: 35px 75px 29px 0;
   margin-left: 28px;
+
+  @media all and (max-width: 1199px) {
+    padding: 35px 28px 29px 0;
+  }
 
   @media all and (max-width: 480px) {
     margin-left: 12px;

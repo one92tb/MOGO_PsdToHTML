@@ -31,8 +31,6 @@ const Description = styled.span`
   ${DescriptionStyle}
 `
 
-
-
 const Name = styled.span`
   font-size: 14px;
   text-align: center;
@@ -141,7 +139,7 @@ const ImageBox = styled.div`
   }
 `
 
-const ImageWrapper = styled.div`
+const Rectangle = styled.div`
   width: 380px;
   height: 470px;
   background: #95e1d3;
@@ -209,7 +207,7 @@ const WhoWeAre = () => (
             {teamMates.map((mate, id) => {
               return (
                 <TeamMate key={mate.node.name}>
-                  <ImageWrapper>
+                  <Rectangle>
                     <Image
                       data-src={mate.node.image.fixed.src}
                       className="lazyload"
@@ -230,7 +228,7 @@ const WhoWeAre = () => (
                         </IconBox>
                       </IconWrapper>
                     </ImageBox>
-                  </ImageWrapper>
+                  </Rectangle>
                   <Name>{mate.node.name}</Name>
                   <Profession>{mate.node.profession}</Profession>
                 </TeamMate>

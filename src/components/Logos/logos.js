@@ -53,7 +53,7 @@ const Logos = () => (
             {edges
               .sort((a, b) => a.node.order - b.node.order)
               .map((logo, id) => (
-                <Logo key={id} src={logo.node.image.fixed.src} />
+                <Logo key={id} data-src={logo.node.image.fixed.src} className="lazyload"/>
               ))}
           </Inner>
         </Wrapper>

@@ -6,7 +6,6 @@ import styled from "styled-components"
 const Wrapper = styled.div`
   width: 100%;
   position: relative;
-  display: block;
   height: 852px;
 
   @media all and (max-width: 1200px) {
@@ -27,7 +26,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Image = styled.img`
+const Background = styled.img`
   position: absolute;
   background-size: cover;
   background-repeat: no-repeat;
@@ -47,14 +46,14 @@ const Inner = styled.div`
 const Title = styled.span`
   ${TitleStyle}
 
-  margin: 0;
   padding: 108.5px 0 17px 0;
 `
 const Headline = styled.span`
+  ${HeadlineStyle}
+
   ::after {
     margin: 34.5px auto 45px auto;
   }
-  ${HeadlineStyle}
 `
 const TabletImg = styled.img`
   position: relative;
@@ -132,7 +131,7 @@ const Feature = () => (
       const { edges } = data.allContentfulUniqueImg
       return (
         <Wrapper>
-          <Image
+          <Background
             data-src={edges[2].node.image.fixed.src}
             className="lazyload"
           />

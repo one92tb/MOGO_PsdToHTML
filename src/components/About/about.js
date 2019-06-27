@@ -28,12 +28,73 @@ const Description = styled.span`
 
   ${DescriptionStyle}
 `
+const Image = styled.img`
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`
+
+const ImgWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media all and (max-width: 1280px) {
+    justify-content: space-evenly;
+  }
+`
+
+const ImageBox = styled.div`
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -11px;
+  left: -11px;
+  width: 382px;
+  height: 252px;
+  flex-direction: column;
+  text-transform: uppercase;
+
+  &:hover {
+    top: -11px;
+    left: -11px;
+    background: linear-gradient(
+      to bottom,
+      rgba(230, 129, 130, 0.8),
+      rgba(251, 227, 137, 0.8)
+    );
+  }
+
+  @media all and (max-width: 768px) {
+    width: 306px;
+    height: 202px;
+  }
+
+  @media all and (max-width: 480px) {
+    width: 230px;
+    height: 152px;
+  }
+`
 
 const Rectangle = styled.div`
   width: 380px;
   height: 250px;
   background-color: #95e1d3;
   margin-bottom: 30px;
+  position: relative;
+
+  &:hover ${Image} {
+    top: -11px;
+    left: -11px;
+  }
+
+  &:hover ${ImageBox} {
+    display: flex;
+  }
 
   @media all and (max-width: 1280px) {
     margin: 0 auto 30px auto;
@@ -50,38 +111,16 @@ const Rectangle = styled.div`
   }
 `
 
-const Image = styled.img`
-  position: relative;
-  top: -1px;
-  left: -1px;
-  width: 382px;
-  height: 252px;
-
-  &:hover {
-    top: -11px;
-    left: -11px;
-  }
-
-  @media all and (max-width: 768px) {
-    width: 306px;
-    height: 202px;
-  }
-
-  @media all and (max-width: 480px) {
-    width: 230px;
-    height: 152px;
-  }
+const ImageTitle = styled.span`
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  font-family: "Montserrat-Bold";
+  display: block;
+  margin-top: 8px;
 `
 
-const ImgWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-  @media all and (max-width: 1280px) {
-    justify-content: space-evenly;
-  }
-`
+const ImageIcon = styled.img``
 
 const About = props => {
   return (
@@ -93,6 +132,15 @@ const About = props => {
               node {
                 order
                 description
+                image {
+                  title
+                  fixed(quality: 100) {
+                    width
+                    height
+                    src
+                    srcSet
+                  }
+                }
               }
             }
           }
@@ -122,6 +170,7 @@ const About = props => {
 
 const AboutComponent = props => {
   const { description } = props.data.allContentfulAbout.edges[0].node
+  const { src } = props.data.allContentfulAbout.edges[0].node.image.fixed
   const { edges } = props.data.allContentfulAboutImg
   const { setRef } = props
   return (
@@ -139,6 +188,10 @@ const AboutComponent = props => {
                 data-src={element.node.image.fixed.src}
                 className="lazyload"
               />
+              <ImageBox>
+                <ImageIcon data-src={src} className="lazyload" />
+                <ImageTitle>super team</ImageTitle>
+              </ImageBox>
             </Rectangle>
           ))}
       </ImgWrapper>

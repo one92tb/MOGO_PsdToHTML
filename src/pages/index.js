@@ -2,17 +2,6 @@ import React from "react"
 import Layout from "../components/layout"
 import loadable from "@loadable/component"
 import styled from "styled-components"
-/*
-import Intro from "../components/Intro/intro"
-import WhatWeDo from "../components/WhatWeDo/whatWeDo";
-import About from "../components/About/about"
-import Statistics from "../components/Statistics/statistics"
-import Services from "../components/Services/services"
-import Feature from "../components/Feature/feature"
-import Quote from "../components/Quote/quote"
-import WhoWeAre from "../components/WhoWeAre/whoWeAre"
-import Logos from "../components/Logos/logos"
-*/
 
 const Intro = loadable(() => import("../components/Intro/intro"))
 const About = loadable(() => import("../components/About/about"))
@@ -25,6 +14,8 @@ const WhoWeAre = loadable(() => import("../components/WhoWeAre/whoWeAre"))
 const Logos = loadable(() => import("../components/Logos/logos"))
 const OurWork = loadable(() => import("../components/OurWork/ourWork"))
 const Quote2 = loadable(() => import("../components/Quote2/quote2"))
+const People = loadable(() => import("../components/People/people"))
+const Blog = loadable(() => import("../components/Blog/blog"))
 
 const Container = styled.div`
   width: 100%;
@@ -57,6 +48,8 @@ class IndexPage extends React.Component {
           <Logos />
           <OurWork setRef={this.setRef} />
           <Quote2 />
+          <People />
+          <Blog />
         </Container>
       </Layout>
     )
