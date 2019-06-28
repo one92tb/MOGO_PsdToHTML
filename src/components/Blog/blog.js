@@ -193,7 +193,6 @@ const Blog = props => (
     `}
     render={data => {
       const { edges } = data.allContentfulBlog
-      console.log(edges)
       return (
         <Wrapper name="blog" ref={props.setRef}>
           <Title>happy client</Title>

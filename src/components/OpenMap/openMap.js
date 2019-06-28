@@ -69,7 +69,6 @@ const OpenMap = () => (
     `}
     render={data => {
       const background = data.allContentfulMap.edges[0]
-      console.log(data)
       return (
         <Wrapper>
           <Background

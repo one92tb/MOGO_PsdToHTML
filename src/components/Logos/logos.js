@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const Wrapper = styled.div`
   padding: 51px 0 50px 0;
-  background: #e3e3e3;
+  background: #f8f8f8;
 `
 
 const Inner = styled.div`
@@ -53,7 +53,11 @@ const Logos = () => (
             {edges
               .sort((a, b) => a.node.order - b.node.order)
               .map((logo, id) => (
-                <Logo key={id} data-src={logo.node.image.fixed.src} className="lazyload"/>
+                <Logo
+                  key={id}
+                  data-src={logo.node.image.fixed.src}
+                  className="lazyload"
+                />
               ))}
           </Inner>
         </Wrapper>

@@ -170,7 +170,6 @@ const Quote = () => (
       }
     `}
     render={data => {
-      console.log(data)
       return (
         <Wrapper>
           <Inner>

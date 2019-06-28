@@ -127,8 +127,6 @@ const Icons = styled.div`
   }
 `
 
-const IconText = styled.span``
-
 const InputWrapper = styled.div`
   display: flex;
 `

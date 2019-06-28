@@ -4,13 +4,14 @@ import styled from "styled-components"
 import { TitleStyle, HeadlineStyle, DescriptionStyle } from "../../css/style.js"
 
 const Wrapper = styled.div`
-  padding-top: 108px;
   margin-left: auto;
   margin-right: auto;
 `
 
 const Title = styled.span`
   ${TitleStyle}
+
+  padding-top: 108px;
 `
 
 const Headline = styled.span`
@@ -38,12 +39,6 @@ const ImagesWrapper = styled.div`
   }
 `
 
-const Image = styled.img`
-  width: 100%;
-  height: auto;
-  background-size: cover;
-`
-
 const Column = styled.div`
   display: flex;
   flex-direction: column;
@@ -55,26 +50,6 @@ const Column = styled.div`
 
   @media all and (max-width: 768px) {
     width: 100%;
-  }
-`
-
-const ImageBox = styled.div`
-  width: 100%;
-  height: auto;
-  background: linear-gradient(
-    to bottom,
-    rgba(230, 129, 130, 0.8),
-    rgba(251, 227, 137, 1)
-  );
-  background-size: cover;
-
-  padding-top: 161px;
-  box-sizing: border-box;
-  position: relative;
-
-  @media all and (max-width: 1919px) {
-    width: 100%;
-    height: auto;
   }
 `
 

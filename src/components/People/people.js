@@ -154,8 +154,6 @@ const People = () => (
       }
     `}
     render={data => {
-      console.log(data)
-
       const { edges } = data.allContentfulPeople
       return (
         <Wrapper>
