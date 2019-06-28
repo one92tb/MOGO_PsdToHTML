@@ -247,7 +247,7 @@ class Header extends React.Component {
 
   scrollToRef = pos => {
     this.setState({
-      checked: !this.state.checked,
+      checked: false
     })
     window.scrollTo(0, pos)
   }

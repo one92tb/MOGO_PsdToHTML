@@ -53,6 +53,15 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Roboto-Regular"],
+          urls: ["src/raleway/Roboto-Regular.ttf"],
+        },
+      },
+    },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

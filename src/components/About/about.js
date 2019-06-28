@@ -59,16 +59,6 @@ const ImageBox = styled.div`
   flex-direction: column;
   text-transform: uppercase;
 
-  &:hover {
-    top: -11px;
-    left: -11px;
-    background: linear-gradient(
-      to bottom,
-      rgba(230, 129, 130, 0.8),
-      rgba(251, 227, 137, 0.8)
-    );
-  }
-
   @media all and (max-width: 768px) {
     width: 306px;
     height: 202px;
@@ -94,6 +84,14 @@ const Rectangle = styled.div`
 
   &:hover ${ImageBox} {
     display: flex;
+
+    top: -11px;
+    left: -11px;
+    background: linear-gradient(
+      to bottom,
+      rgba(230, 129, 130, 0.8),
+      rgba(251, 227, 137, 0.8)
+    );
   }
 
   @media all and (max-width: 1280px) {
