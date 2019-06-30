@@ -65,13 +65,17 @@ const PersonWrapper = styled.div`
   margin-bottom: 68px;
 `
 
-const PersonImage = styled.img`
+const ImageWrapper = styled.div`
   border-radius: 50%;
   margin-right: 29px;
   height: 112px;
   width: 112px;
+`
 
+const Image = styled.img`
   @media all and (max-width: 480px) {
+    height: 112px;
+    width: 112px;
     display: none;
   }
 `
@@ -170,10 +174,13 @@ const People = () => (
                 .sort((a, b) => a.node.order - b.node.order)
                 .map((person, id) => (
                   <PersonWrapper key={id}>
-                    <PersonImage
-                      src={person.node.image.fixed.src}
-                      alt={person.node.image.title}
-                    />
+                    <ImageWrapper>
+                      <Image
+                        className="lazyload"
+                        data-src={person.node.image.fixed.src}
+                        alt={person.node.image.title}
+                      />
+                    </ImageWrapper>
                     <DescriptionWrapper>
                       <Name>{person.node.name}</Name>
                       <Profession>{person.node.profession}</Profession>

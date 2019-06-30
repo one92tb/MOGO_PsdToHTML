@@ -45,6 +45,11 @@ const ArrowRight = styled.img`
 const Icon = styled.img`
   width: 212px;
   height: 212px;
+`
+
+const IconWrapper = styled.div`
+  width: 212px;
+  height: 212px;
   border-radius: 50%;
 
   @media all and (max-width: 768px) {
@@ -178,12 +183,14 @@ const Quote = () => (
               width={12}
               src={data.allContentfulQuoteImg.edges[2].node.icon.fixed.src}
             />
-            <Icon
-              className="lazyload"
-              data-src={
-                data.allContentfulQuote2Img.edges[0].node.image.fixed.src
-              }
-            />
+            <IconWrapper>
+              <Icon
+                className="lazyload"
+                data-src={
+                  data.allContentfulQuote2Img.edges[0].node.image.fixed.src
+                }
+              />
+            </IconWrapper>
             <TextWrapper>
               <Text>{data.allContentfulQuote2.edges[0].node.quote}</Text>
               <Signature>
