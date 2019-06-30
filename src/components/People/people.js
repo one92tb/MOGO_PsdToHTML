@@ -66,13 +66,14 @@ const PersonWrapper = styled.div`
 `
 
 const ImageWrapper = styled.div`
-  border-radius: 50%;
   margin-right: 29px;
   height: 112px;
   width: 112px;
 `
 
 const Image = styled.img`
+  border-radius: 50%;
+
   @media all and (max-width: 480px) {
     height: 112px;
     width: 112px;

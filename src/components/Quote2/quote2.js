@@ -45,12 +45,12 @@ const ArrowRight = styled.img`
 const Icon = styled.img`
   width: 212px;
   height: 212px;
+  border-radius: 50%;
 `
 
 const IconWrapper = styled.div`
   width: 212px;
   height: 212px;
-  border-radius: 50%;
 
   @media all and (max-width: 768px) {
     display: none;
