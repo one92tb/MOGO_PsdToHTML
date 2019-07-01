@@ -58,12 +58,16 @@ const Intro = props => (
     render={data => {
       const { edges } = data.allContentfulIntroImg
       const { setRef } = props
+      console.log(props.references)
       return (
         <Wrapper ref={setRef} name="intro">
-          <Image data-src={edges[0].node.image.fixed.src} className="lazyload" />
+          <Image
+            data-src={edges[0].node.image.fixed.src}
+            className="lazyload"
+          />
           <Inner>
             <Header references={props.references} />
-            <Jumbotron aboutRef={props.references["about"]} />
+            <Jumbotron references={props.references} />
             <Slider />
           </Inner>
         </Wrapper>

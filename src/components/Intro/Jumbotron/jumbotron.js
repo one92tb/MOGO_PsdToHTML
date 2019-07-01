@@ -103,20 +103,21 @@ const Button = styled.button`
   }
 `
 
-const Jumbotron = props => (
-  <Wrapper>
-    <Tittle>creative template</Tittle>
-    <Content>
-      welcome <br /> to mogo
-    </Content>
-    <Button
-      onClick={() => {
-        window.scrollTo(0, props.aboutRef.offsetTop)
-      }}
-    >
-      learn more
-    </Button>
-  </Wrapper>
-)
+const Jumbotron = props => {
+  console.log(props)
+  return (
+    <Wrapper>
+      <Tittle>creative template</Tittle>
+      <Content>
+        welcome <br /> to mogo
+      </Content>
+      <Button
+        onClick={() => window.scrollTo(0, props.references["about"].offsetTop)}
+      >
+        learn more
+      </Button>
+    </Wrapper>
+  )
+}
 
 export default Jumbotron
