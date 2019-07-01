@@ -63,7 +63,7 @@ const Intro = props => (
           <Image data-src={edges[0].node.image.fixed.src} className="lazyload" />
           <Inner>
             <Header references={props.references} />
-            <Jumbotron />
+            <Jumbotron aboutRef={props.references["about"]} />
             <Slider />
           </Inner>
         </Wrapper>

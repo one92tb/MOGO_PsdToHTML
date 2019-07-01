@@ -67,7 +67,8 @@ const IconWrapper = styled.div`
   height: 56px;
   width: 224px;
   background: #f38181;
-  display: none;
+  display: flex;
+  opacity: 0;
 `
 const Icon = styled.i`
   color: #f38181;
@@ -93,20 +94,14 @@ const IconBox = styled.div`
   }
 
   &:hover {
+    transition: 1s ease;
     background: #f38181;
   }
 
   &:hover ${Icon} {
+    transition: 1s ease;
     color: #fff;
   }
-`
-
-const Image = styled.img`
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: absolute;
-  width: 100%;
-  height: 100%;
 `
 
 const ImageBox = styled.div`
@@ -118,19 +113,23 @@ const ImageBox = styled.div`
   left: -1px;
   width: 382px;
   height: 472px;
+  background: url(${props => props.bgUrl});
 
   &:hover {
+    transition: 1s ease;
     top: -11px;
     left: -11px;
     background: linear-gradient(
-      to bottom,
-      rgba(230, 129, 130, 0.8),
-      rgba(251, 227, 137, 0.8)
-    );
+        to bottom,
+        rgba(230, 129, 130, 0.8),
+        rgba(251, 227, 137, 0.8)
+      ),
+      url(${props => props.bgUrl});
   }
 
   &:hover ${IconWrapper} {
-    display: flex;
+    transition: 1s ease;
+    opacity: 1;
   }
 
   @media all and (max-width: 480px) {
@@ -148,11 +147,6 @@ const Rectangle = styled.div`
   @media all and (max-width: 480px) {
     width: 260px;
     height: 322px;
-  }
-
-  &:hover ${Image} {
-    top: -11px;
-    left: -11px;
   }
 `
 
@@ -207,12 +201,8 @@ const WhoWeAre = () => (
             {teamMates.map((mate, id) => {
               return (
                 <TeamMate key={mate.node.name}>
-                  <Rectangle>
-                    <Image
-                      data-src={mate.node.image.fixed.src}
-                      className="lazyload"
-                    />
-                    <ImageBox>
+                  <Rectangle bgUrl={mate.node.image.fixed.src}>
+                    <ImageBox bgUrl={mate.node.image.fixed.src}>
                       <IconWrapper>
                         <IconBox>
                           <Icon className="flaticon-facebook" />

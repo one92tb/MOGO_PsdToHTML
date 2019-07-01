@@ -103,21 +103,20 @@ const Button = styled.button`
   }
 `
 
-const Jumbotron = () => (
+const Jumbotron = props => (
   <Wrapper>
     <Tittle>creative template</Tittle>
     <Content>
       welcome <br /> to mogo
     </Content>
-    <Button>learn more</Button>
+    <Button
+      onClick={() => {
+        window.scrollTo(0, props.aboutRef.offsetTop)
+      }}
+    >
+      learn more
+    </Button>
   </Wrapper>
 )
 
 export default Jumbotron
-
-/*
-@media all and (max-width: 1280px) { ...}
-@media all and (max-width: 980px) { ... }
-@media all and (max-width: 736px) { ... }
-@media all and (max-width: 480px) { ... }
-*/

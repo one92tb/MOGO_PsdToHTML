@@ -194,9 +194,7 @@ const NavIcon = styled.i`
     height: 70px;
 
     ::before {
-
       font-size: 30px;
-
     }
   }
 
@@ -205,9 +203,7 @@ const NavIcon = styled.i`
     height: 50px;
 
     ::before {
-
       font-size: 20px;
-
     }
   }
 `

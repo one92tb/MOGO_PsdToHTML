@@ -3,6 +3,12 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { TitleStyle, HeadlineStyle, DescriptionStyle } from "../../css/style.js"
 
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`
+
 const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
@@ -55,6 +61,7 @@ const Column = styled.div`
 
 const ContentWrapper = styled.div`
   width: 100%;
+  opacity: 0;
 `
 
 const Icon = styled.img`
@@ -89,24 +96,39 @@ const Rectangle = styled.div`
   align-items: center;
   background: linear-gradient(
       to bottom,
-      rgba(
-        243,
-        138,
-        129,
-        ${props => (props.alt === "ourWork_4" ? "0.8" : "0")}
-      ),
-      rgba(251, 227, 137, ${props => (props.alt === "ourWork_4" ? "0.8" : "0")})
+      rgba(243, 138, 129, 0.8),
+      rgba(251, 227, 137, 0.8)
     ),
     url(${props => props.imageSrc});
   background-size: cover;
   background-repeat: no-repeat;
 
+  &:hover ${ContentWrapper} {
+    transition: 1s ease;
+    opacity: 1;
+  }
+
+  &:hover {
+    transition: 1s ease;
+    opacity: 1;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &:hover ${Image} {
+    transition: 1s ease;
+    opacity: 0;
+  }
+
   ::before {
     content: "";
     display: block;
-    padding-top: ${props => (props.alt === "ourWork_5" ? "162.5%" : "81.25%")};
+    padding-top: ${props => (props.name === "ourWork_5" ? "162.5%" : "81.25%")};
   }
 `
+
+const columns = [[0, 1], [2, 3], [4], [5, 6]]
 
 const OurWork = props => (
   <StaticQuery
@@ -163,53 +185,33 @@ const OurWork = props => (
             aliquip ex ea commodo consequat.
           </Descripton>
           <ImagesWrapper>
-            <Column>
-              <Rectangle
-                imageSrc={edges[0].node.image.fixed.src}
-                alt={edges[0].node.name}
-              ></Rectangle>
-              <Rectangle
-                imageSrc={edges[1].node.image.fixed.src}
-                alt={edges[1].node.name}
-              ></Rectangle>
-            </Column>
-            <Column>
-              <Rectangle
-                imageSrc={edges[2].node.image.fixed.src}
-                alt={edges[2].node.name}
-              ></Rectangle>
-              <Rectangle
-                imageSrc={edges[3].node.image.fixed.src}
-                alt={edges[3].node.name}
-              >
-                <ContentWrapper>
-                  <Icon
-                    data-src={
-                      data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
-                    }
-                    className="lazyload"
-                  />
-                  <ImageHeadline>creatively designed</ImageHeadline>
-                  <ImageText>lorem ipsum dolor sit</ImageText>
-                </ContentWrapper>
-              </Rectangle>
-            </Column>
-            <Column>
-              <Rectangle
-                imageSrc={edges[4].node.image.fixed.src}
-                alt={edges[4].node.name}
-              ></Rectangle>
-            </Column>
-            <Column>
-              <Rectangle
-                imageSrc={edges[5].node.image.fixed.src}
-                alt={edges[5].node.name}
-              ></Rectangle>
-              <Rectangle
-                imageSrc={edges[6].node.image.fixed.src}
-                alt={edges[6].node.name}
-              ></Rectangle>
-            </Column>
+            {columns.map((column_number, id) => (
+              <Column key={id}>
+                {column_number.map((square_number, id) => (
+                  <Rectangle
+                    key={id}
+                    imageSrc={edges[square_number].node.image.fixed.src}
+                    name={edges[square_number].node.name}
+                  >
+                    <Image
+                      data-src={edges[square_number].node.image.fixed.src}
+                      className="lazyload"
+                    />
+                    <ContentWrapper>
+                      <Icon
+                        data-src={
+                          data.allContentfulOurWorkImg.edges[0].node.image.fixed
+                            .src
+                        }
+                        className="lazyload"
+                      />
+                      <ImageHeadline>creatively designed</ImageHeadline>
+                      <ImageText>lorem ipsum dolor sit</ImageText>
+                    </ContentWrapper>
+                  </Rectangle>
+                ))}
+              </Column>
+            ))}
           </ImagesWrapper>
         </Wrapper>
       )
@@ -220,12 +222,127 @@ const OurWork = props => (
 export default OurWork
 
 /*
-<Icon
-  data-src={
-    data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
-  }
-  className="lazyload"
-/>
-<ImageHeadline>creatively designed</ImageHeadline>
-<ImageText>lorem ipsum dolor sit</ImageText>
+<Column>
+  <Rectangle
+    imageSrc={edges[0].node.image.fixed.src}
+    name={edges[0].node.name}
+  >
+    <Image src={edges[0].node.image.fixed.src} />
+    <ContentWrapper>
+      <Icon
+        data-src={
+          data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
+        }
+        className="lazyload"
+      />
+      <ImageHeadline>creatively designed</ImageHeadline>
+      <ImageText>lorem ipsum dolor sit</ImageText>
+    </ContentWrapper>
+  </Rectangle>
+  <Rectangle
+    imageSrc={edges[1].node.image.fixed.src}
+    name={edges[1].node.name}
+  >
+    <Image src={edges[1].node.image.fixed.src} />
+    <ContentWrapper>
+      <Icon
+        data-src={
+          data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
+        }
+        className="lazyload"
+      />
+      <ImageHeadline>creatively designed</ImageHeadline>
+      <ImageText>lorem ipsum dolor sit</ImageText>
+    </ContentWrapper>
+  </Rectangle>
+</Column>
+<Column>
+  <Rectangle
+    imageSrc={edges[2].node.image.fixed.src}
+    name={edges[2].node.name}
+  >
+    <Image src={edges[2].node.image.fixed.src} />
+    <ContentWrapper>
+      <Icon
+        data-src={
+          data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
+        }
+        className="lazyload"
+      />
+      <ImageHeadline>creatively designed</ImageHeadline>
+      <ImageText>lorem ipsum dolor sit</ImageText>
+    </ContentWrapper>
+  </Rectangle>
+  <Rectangle
+    imageSrc={edges[3].node.image.fixed.src}
+    name={edges[3].node.name}
+  >
+    <Image src={edges[3].node.image.fixed.src} />
+    <ContentWrapper>
+      <Icon
+        data-src={
+          data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
+        }
+        className="lazyload"
+      />
+      <ImageHeadline>creatively designed</ImageHeadline>
+      <ImageText>lorem ipsum dolor sit</ImageText>
+    </ContentWrapper>
+  </Rectangle>
+</Column>
+<Column>
+  <Rectangle
+    imageSrc={edges[4].node.image.fixed.src}
+    name={edges[4].node.name}
+  >
+    <Image src={edges[4].node.image.fixed.src} />
+    <ContentWrapper>
+      <Icon
+        data-src={
+          data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
+        }
+        className="lazyload"
+      />
+      <ImageHeadline>creatively designed</ImageHeadline>
+      <ImageText>lorem ipsum dolor sit</ImageText>
+    </ContentWrapper>
+  </Rectangle>
+</Column>
+<Column>
+  <Rectangle
+    imageSrc={edges[5].node.image.fixed.src}
+    name={edges[5].node.name}
+  >
+    <Image
+      className="lazyload"
+      data-src={edges[5].node.image.fixed.src}
+    />
+    <ContentWrapper>
+      <Icon
+        data-src={
+          data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
+        }
+        className="lazyload"
+      />
+      <ImageHeadline>creatively designed</ImageHeadline>
+      <ImageText>lorem ipsum dolor sit</ImageText>
+    </ContentWrapper>
+  </Rectangle>
+  <Rectangle
+    imageSrc={edges[6].node.image.fixed.src}
+    name={edges[6].node.name}
+  >
+    <Image src={edges[6].node.image.fixed.src} />
+    <ContentWrapper>
+      <Icon
+        data-src={
+          data.allContentfulOurWorkImg.edges[0].node.image.fixed.src
+        }
+        className="lazyload"
+      />
+      <ImageHeadline>creatively designed</ImageHeadline>
+      <ImageText>lorem ipsum dolor sit</ImageText>
+    </ContentWrapper>
+  </Rectangle>
+</Column>
 */

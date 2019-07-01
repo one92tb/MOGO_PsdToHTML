@@ -19,93 +19,43 @@ const Headline = styled.span`
   ::after {
     margin: 34.5px auto 42.5px auto;
   }
-
   ${HeadlineStyle}
 `
 
 const Description = styled.span`
   margin: 0 auto 96.5px auto;
-
   ${DescriptionStyle}
 `
-const Image = styled.img`
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-`
 
-const ImgWrapper = styled.div`
+const RectanglesWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
   @media all and (max-width: 1280px) {
     justify-content: space-evenly;
   }
 `
 
 const ImageBox = styled.div`
-  display: none;
-
+  display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  top: -11px;
-  left: -11px;
+  position: absolute;
   width: 382px;
   height: 252px;
+  top: 0;
+  left: 0;
   flex-direction: column;
   text-transform: uppercase;
+  background: url(${props => props.bgUrl});
 
   @media all and (max-width: 768px) {
     width: 306px;
     height: 202px;
   }
-
   @media all and (max-width: 480px) {
     width: 230px;
     height: 152px;
-  }
-`
-
-const Rectangle = styled.div`
-  width: 380px;
-  height: 250px;
-  background-color: #95e1d3;
-  margin-bottom: 30px;
-  position: relative;
-
-  &:hover ${Image} {
-    top: -11px;
-    left: -11px;
-  }
-
-  &:hover ${ImageBox} {
-    display: flex;
-
-    top: -11px;
-    left: -11px;
-    background: linear-gradient(
-      to bottom,
-      rgba(230, 129, 130, 0.8),
-      rgba(251, 227, 137, 0.8)
-    );
-  }
-
-  @media all and (max-width: 1280px) {
-    margin: 0 auto 30px auto;
-  }
-
-  @media all and (max-width: 768px) {
-    width: 304px;
-    height: 200px;
-  }
-
-  @media all and (max-width: 480px) {
-    width: 228px;
-    height: 150px;
   }
 `
 
@@ -116,9 +66,62 @@ const ImageTitle = styled.span`
   font-family: "Montserrat-Bold";
   display: block;
   margin-top: 8px;
+  opacity: 0;
 `
 
-const ImageIcon = styled.img``
+const ImageIcon = styled.img`
+  opacity: 0;
+`
+
+const Rectangle = styled.div`
+  width: 380px;
+  height: 250px;
+  background-color: #95e1d3;
+  margin-bottom: 30px;
+  position: relative;
+
+  &:hover ${ImageBox} {
+    display: flex;
+    transition: 1s ease;
+    top: -10px;
+    left: -10px;
+    background: linear-gradient(
+        to bottom,
+        rgba(230, 129, 130, 0.8),
+        rgba(251, 227, 137, 0.8)
+      ),
+      url(${props => props.bgUrl});
+  }
+
+  &:hover ${ImageTitle} {
+    transition: 1s ease;
+    opacity: 1;
+  }
+
+  &:hover ${ImageIcon} {
+    transition: 1s ease;
+    opacity: 1;
+  }
+  @media all and (max-width: 1280px) {
+    margin: 0 auto 30px auto;
+  }
+  @media all and (max-width: 768px) {
+    width: 304px;
+    height: 200px;
+  }
+  @media all and (max-width: 480px) {
+    width: 228px;
+    height: 150px;
+  }
+`
+
+const ImageWrapper = styled.div`
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 382px;
+  height: 252px;
+`
 
 const About = props => {
   return (
@@ -176,23 +179,23 @@ const AboutComponent = props => {
       <Title>what we do</Title>
       <Headline>story about us</Headline>
       <Description>{description}</Description>
-      <ImgWrapper>
+      <RectanglesWrapper>
         {edges
           .sort((a, b) => a.node.order - b.node.order)
           .map(element => (
-            <Rectangle key={element.node.name}>
-              <Image
-                alt={element.node.name}
-                data-src={element.node.image.fixed.src}
-                className="lazyload"
-              />
-              <ImageBox>
-                <ImageIcon data-src={src} className="lazyload" />
-                <ImageTitle>super team</ImageTitle>
-              </ImageBox>
+            <Rectangle
+              key={element.node.name}
+              bgUrl={element.node.image.fixed.src}
+            >
+              <ImageWrapper>
+                <ImageBox bgUrl={element.node.image.fixed.src}>
+                  <ImageIcon data-src={src} className="lazyload" />
+                  <ImageTitle>super team</ImageTitle>
+                </ImageBox>
+              </ImageWrapper>
             </Rectangle>
           ))}
-      </ImgWrapper>
+      </RectanglesWrapper>
     </Wrapper>
   )
 }

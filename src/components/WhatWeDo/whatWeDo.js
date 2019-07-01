@@ -99,6 +99,7 @@ const CardHeader = styled.div`
   padding: 0 20px 0 16px;
   justify-content: space-between;
   box-sizing: border-box;
+  cursor: pointer;
 
   @media all and (max-width: 480px) {
     height: 45px;
@@ -163,10 +164,6 @@ const Icon = styled.img`
 const ArrowIcon = styled.img`
   width: 22px;
   heigh: 12px;
-
-  &:hover {
-    cursor: pointer;
-  }
 
   @media all and (max-width: 480px) {
     width: 18px;
@@ -244,7 +241,7 @@ class WhatWeDoComponent extends React.Component {
 
   handleActive = e => {
     this.setState({
-      active: e.target.alt,
+      active: e.target.textContent,
     })
   }
 
@@ -276,7 +273,10 @@ class WhatWeDoComponent extends React.Component {
                 const { node } = element
                 return (
                   <Card key={id}>
-                    <CardHeader>
+                    <CardHeader
+                      onClick={e => this.handleActive(e)}
+                      ref={input => (this.input = input)}
+                    >
                       <CardHeaderInner>
                         <Icon src={node.image.fixed.src} />
                         <Name>{node.name}</Name>
@@ -290,7 +290,6 @@ class WhatWeDoComponent extends React.Component {
                                 .fixed.src
                         }
                         alt={element.node.name}
-                        onClick={e => this.handleActive(e)}
                       />
                     </CardHeader>
                     <CardBody name={node.name} activeStatus={this.state.active}>

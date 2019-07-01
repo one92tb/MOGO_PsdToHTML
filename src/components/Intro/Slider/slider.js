@@ -4,11 +4,6 @@ import styled from "styled-components"
 const Wrapper = styled.div`
   padding: 127px 0 21px 0;
   width: 100%;
-
-  @media all and (max-width: 1280px) {
-    display: none;
-  }
-
 `
 
 const List = styled.ul`
@@ -17,6 +12,10 @@ const List = styled.ul`
   padding: 0;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @media all and (max-width: 1200px) {
+    justify-content: space-evenly;
+  }
 `
 
 const ListItem = styled.li`
@@ -33,7 +32,7 @@ const ListItem = styled.li`
     content: "";
     display: block;
     border-top: 3px solid #fff;
-    width: 280px;
+    width: 100%
     margin-bottom: 17px;
 
   }
@@ -42,7 +41,7 @@ const ListItem = styled.li`
     content: "";
     display: block;
     border-bottom: 3px solid red;
-    width: 70px;
+    width: 25%;
     position: relative;
     bottom: 49px;
   }
@@ -51,6 +50,20 @@ const ListItem = styled.li`
     ::after {
       content: none;
     }
+  }
+
+
+  @media all and (max-width: 1200px) {
+    margin-bottom: 20px;
+  }
+
+  @media all and (max-width: 480px) {
+    width: 220px;
+    font-size: 18px;
+    ::after{
+      bottom: 41px;
+    }
+  }
 `
 
 const Number = styled.span`
