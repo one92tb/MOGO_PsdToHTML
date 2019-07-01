@@ -58,7 +58,6 @@ const Intro = props => (
     render={data => {
       const { edges } = data.allContentfulIntroImg
       const { setRef } = props
-      console.log(props.references)
       return (
         <Wrapper ref={setRef} name="intro">
           <Image

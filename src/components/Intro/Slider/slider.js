@@ -4,7 +4,7 @@ import styled from "styled-components"
 const Wrapper = styled.div`
   padding: 127px 0 21px 0;
   width: 100%;
-  display: none;
+
 `
 
 const List = styled.ul`
