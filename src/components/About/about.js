@@ -121,6 +121,15 @@ const ImageWrapper = styled.div`
   left: -1px;
   width: 382px;
   height: 252px;
+
+  @media all and (max-width: 768px) {
+    width: 306px;
+    height: 202px;
+  }
+  @media all and (max-width: 480px) {
+    width: 230px;
+    height: 152px;
+  }
 `
 
 const About = props => {
