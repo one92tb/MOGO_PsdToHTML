@@ -116,7 +116,7 @@ const Description = styled.span`
   font-family: "Roboto-Regular";
 `
 
-const People = () => (
+const People = props => (
   <StaticQuery
     query={graphql`
       query {
@@ -160,8 +160,9 @@ const People = () => (
     `}
     render={data => {
       const { edges } = data.allContentfulPeople
+      const { setRef } = props
       return (
-        <Wrapper>
+        <Wrapper name="people" ref={setRef} >
           <Background
             className="lazyload"
             data-src={data.allContentfulPeopleImg.edges[0].node.image.fixed.src}

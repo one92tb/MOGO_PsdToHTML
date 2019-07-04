@@ -195,8 +195,8 @@ const Blog = props => (
       const { edges } = data.allContentfulBlog
       return (
         <Wrapper name="blog" ref={props.setRef}>
-          <Title>happy client</Title>
-          <Headline>what people say</Headline>
+          <Title>our stories</Title>
+          <Headline>latest blog</Headline>
           <BlogWrapper>
             {edges
               .sort((a, b) => a.node.order - b.node.order)

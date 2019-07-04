@@ -33,9 +33,7 @@ class IndexPage extends React.Component {
   setRef = ref => {
     this.references[ref.attributes.name.nodeValue] = ref
   }
-
   render() {
-    console.log(this.references)
     return (
       <Layout>
         <Container>
@@ -50,7 +48,7 @@ class IndexPage extends React.Component {
           <Logos />
           <OurWork setRef={this.setRef} />
           <Quote2 />
-          <People />
+          <People setRef={this.setRef} />
           <Blog setRef={this.setRef} />
           <OpenMap />
           <Contact setRef={this.setRef} />

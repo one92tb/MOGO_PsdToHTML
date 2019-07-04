@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   padding: 22.5px 0 60px 0;
   position: relative;
   height: 40px;
+  z-index: 1;
 
   @media all and (max-width: 980px) {
     background: ${props => (props.isChecked ? " #f7a090" : "transparent")};
@@ -243,7 +244,7 @@ class Header extends React.Component {
 
   scrollToRef = pos => {
     this.setState({
-      checked: false
+      checked: false,
     })
     window.scrollTo(0, pos)
   }

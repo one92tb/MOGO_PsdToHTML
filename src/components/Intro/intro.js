@@ -3,7 +3,6 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Header from "./Header/header"
 import Jumbotron from "./Jumbotron/jumbotron"
-import Slider from "./Slider/slider"
 
 const Wrapper = styled.div`
   position: relative;
@@ -67,7 +66,6 @@ const Intro = props => (
           <Inner>
             <Header references={props.references} />
             <Jumbotron references={props.references} />
-            <Slider />
           </Inner>
         </Wrapper>
       )
