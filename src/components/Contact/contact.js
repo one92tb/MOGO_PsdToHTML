@@ -87,6 +87,10 @@ const Amount = styled.span`
 `
 
 const Icon = styled.i`
+  &:hover {
+    cursor: pointer;
+  }
+
   ::before {
     font-size: 16px;
   }

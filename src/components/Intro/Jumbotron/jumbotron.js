@@ -151,28 +151,6 @@ const Button = styled.button`
     height: 30px;
   }
 `
-
-const Box = styled.div`
-  width: 100%;
-  background: green;
-`
-const Input = styled.input`
-  width: 12px;
-  height: 12px;
-  margin: 2rem 12px;
-  border-radius: 50%;
-  z-index: 10;
-  outline: 6px solid #ccc;
-  outline-offset: -6px;
-  box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-`
-
 const List = styled.ul`
   @media all and (max-width: 1200px) {
     justify-content: space-evenly;
