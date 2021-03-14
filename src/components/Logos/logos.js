@@ -2,7 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding: 51px 0 50px 0;
   background: #f8f8f8;
 `

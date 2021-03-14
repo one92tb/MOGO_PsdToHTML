@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { TitleStyle, HeadlineStyle, DescriptionStyle } from "../../css/style.js"
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   width: 100%;
   max-width: 1200px;
   height: 100%;

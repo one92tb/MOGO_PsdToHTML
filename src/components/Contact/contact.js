@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { StaticQuery, graphql } from "gatsby"
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
   background: #f8f8f8;
 `
 

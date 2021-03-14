@@ -4,7 +4,7 @@ import styled from "styled-components"
 import Header from "./Header/header"
 import Jumbotron from "./Jumbotron/jumbotron"
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   position: relative;
   width: 100%;
   background: linear-gradient(to bottom, rgba(230,129,130, 0.8), rgba(251, 227, 137, 0.8));

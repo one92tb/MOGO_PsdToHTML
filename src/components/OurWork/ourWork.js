@@ -9,7 +9,7 @@ const Image = styled.img`
   position: absolute;
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   margin-left: auto;
   margin-right: auto;
 `

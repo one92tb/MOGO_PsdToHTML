@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { css } from "styled-components"
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   transition: all 0.5 ease;
   display: flex;
   justify-content: space-between;
@@ -52,7 +52,7 @@ const Logo = styled.p`
   }
 `
 
-const Nav = styled.ul`
+const Nav = styled.nav`
   width: 620px;
   display: flex;
   justify-content: space-evenly;
